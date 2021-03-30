@@ -13,6 +13,7 @@ import contact from './contact'
 import department from './department'
 import employee from './employee'
 import service from './service'
+import client from './client'
 
 Vue.use(Vuex)
 
@@ -28,7 +29,8 @@ export default function () {
       contact,
       department,
       employee,
-      service
+      service,
+      client
     },
     plugins: [createPersistedState({ key: process.env.DATA_NAME })],
     strict: process.env.DEBUGGING

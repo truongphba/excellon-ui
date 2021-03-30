@@ -54,6 +54,14 @@ const routes = [
         component: () => import('pages/Service.vue')
       },
       {
+        path: 'clients',
+        meta: {
+          title: 'Clients'
+        },
+        name: 'clients',
+        component: () => import('pages/Client.vue')
+      },
+      {
         path: 'employees',
         meta: {
           title: 'Employees'
