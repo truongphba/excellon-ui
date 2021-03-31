@@ -99,6 +99,19 @@
             </q-item>
             <q-item
               active-class="tab-active"
+              :to="{name: 'products'}"
+              class="q-ma-sm navigation-item"
+              clickable
+              v-ripple
+            >
+              <q-item-section avatar>
+                <q-icon name="fas fa-luggage-cart"/>
+              </q-item-section>
+
+              <q-item-section>Products</q-item-section>
+            </q-item>
+            <q-item
+              active-class="tab-active"
               :to="{name: 'payments'}"
               class="q-ma-sm navigation-item"
               clickable

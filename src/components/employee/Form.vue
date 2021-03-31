@@ -25,7 +25,7 @@
       <q-select
         class="col-12"
         outlined
-        :rules="[val => !!val || 'Please choose department for service']"
+        :rules="[val => val != null || 'Please choose department for service']"
         v-model="initialEmployee.departmentId"
         :options="allDepartments"
         label="Department"

@@ -22,7 +22,7 @@
     <q-dialog v-model="isShow">
       <FormDialog :is-edit="isEdit" :is-large="true">
         <Form :product="product"
-              :all-categories="allCategories"
+              :all-clients="allClients"
               :is-saved="isSaved"
               :is-edit="isEdit"
               :error="error"
@@ -58,84 +58,67 @@ export default {
       filter: {},
       columns: [
         {
-          name: 'images',
-          label: 'Ảnh',
-          align: 'center',
-          field: 'images'
-        },
-        {
           name: 'name',
-          label: 'Tên',
+          label: 'Name',
           align: 'left',
           field: 'name'
         },
         {
-          name: 'price',
-          align: 'center',
-          label: 'Giá (VND)',
-          field: 'price'
+          name: 'description',
+          label: 'Description',
+          align: 'left',
+          field: 'description'
         },
         {
-          name: 'discount',
-          align: 'center',
-          label: 'Giảm (%)',
-          field: 'discount'
-        },
-        {
-          name: 'quantity',
-          align: 'center',
-          label: 'SL',
-          field: 'quantity'
+          name: 'clientName',
+          label: 'Client',
+          align: 'left',
+          field: 'clientName'
         },
         {
           name: 'created_at',
           align: 'center',
-          label: 'Tạo/Cập nhật',
+          label: 'Created At',
           field: 'created_at'
         },
         {
           name: 'status',
           align: 'center',
-          label: 'Trạng thái',
+          label: 'Status',
           field: 'status'
         },
         {
           name: 'action',
           align: 'left',
-          label: 'Hành động'
+          label: 'Action'
         }
       ],
       filtersAttribute: [
         {
-          label: 'Tên sản phẩm',
+          label: 'Search',
           field: 'name',
           type: 'text'
         },
         {
-          label: 'Giảm giá',
-          field: 'discount',
-          type: 'number'
-        },
-        {
-          label: 'Danh mục',
-          field: 'categoryId',
-          type: 'select',
-          options: []
-        },
-        {
-          label: 'Trạng thái',
+          label: 'Status',
           field: 'status',
           type: 'select'
+        },
+        {
+          label: 'Client',
+          field: 'clientId',
+          type: 'select',
+          options: []
         }
       ]
     }
   },
   async mounted () {
-    await this.loadAllCategories()
+    await this.loadAllClients()
     this.filtersAttribute
-      .find(x => x.field === 'categoryId')
+      .find(x => x.field === 'clientId')
       .options = [
-        ...this.allCategories
+        ...this.allClients
       ]
   },
   computed: {
@@ -149,8 +132,8 @@ export default {
       'currentPage',
       'isDeleted'
     ]),
-    ...mapState('category', [
-      'allCategories'
+    ...mapState('client', [
+      'allClients'
     ]),
     filterStatuses () {
       return Constants.Status
@@ -162,7 +145,7 @@ export default {
       loadProduct: 'product/loadProduct',
       saveProduct: 'product/saveProduct',
       deleteProduct: 'product/deleteProduct',
-      loadAllCategories: 'category/loadAllCategories',
+      loadAllClients: 'client/loadAllClients',
       clearError: 'product/clearError'
     }),
     async onRequest ({ data, done }) {
@@ -207,6 +190,19 @@ export default {
         data: this.currentPage
       })
       this.isShow = false
+    },
+    filterFn (val, update, option) {
+      if (val === '') {
+        update(() => {
+          this.options = option
+        })
+        return
+      }
+
+      update(() => {
+        const needle = val.toLowerCase()
+        this.options = option.filter(v => v.toLowerCase().indexOf(needle) > -1)
+      })
     }
   }
 }

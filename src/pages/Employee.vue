@@ -115,17 +115,23 @@ export default {
           label: 'Status',
           field: 'status',
           type: 'select'
+        },
+        {
+          label: 'Department',
+          field: 'departmentId',
+          type: 'select',
+          options: []
         }
       ]
     }
   },
   async mounted () {
     await this.loadAllDepartments()
-    // this.filtersAttribute
-    //   .find(x => x.field === 'categoryId')
-    //   .options = [
-    //     ...this.allDepartments
-    //   ]
+    this.filtersAttribute
+      .find(x => x.field === 'departmentId')
+      .options = [
+        ...this.allDepartments
+      ]
   },
   computed: {
     ...mapState('employee', [

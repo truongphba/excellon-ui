@@ -62,6 +62,14 @@ const routes = [
         component: () => import('pages/Client.vue')
       },
       {
+        path: 'products',
+        meta: {
+          title: 'Products'
+        },
+        name: 'products',
+        component: () => import('pages/Product.vue')
+      },
+      {
         path: 'employees',
         meta: {
           title: 'Employees'

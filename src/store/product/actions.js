@@ -23,8 +23,14 @@ export async function loadProducts ({
       ...currentPage
     }).toString()
     const response = await httpClient.get(`${endPoint}?${queryParams}`)
+    const clientResponse = await httpClient.get('Clients/All')
+    const clients = clientResponse.data
+    const products = response.data
+    for (let i = 0; i < products.length; i++) {
+      products[i].clientName = await clients.find(client => client.id === products[i].clientId).name
+    }
     commit('fetchProductsSuccess', {
-      data: response.data,
+      data: products,
       total: response.total,
       currentPage: currentPage,
       filter: filter
@@ -52,9 +58,9 @@ export async function saveProduct ({ commit }, object) {
   commit('saveProductBegin')
   try {
     if (object.id) {
-      await httpClient.put(`${endPoint}/${object.id}`, { data: object })
+      await httpClient.put(`${endPoint}/${object.id}`, object)
     } else {
-      await httpClient.post(endPoint, { data: object })
+      await httpClient.post(endPoint, object)
     }
     commit('saveProductSuccess')
   } catch (error) {
