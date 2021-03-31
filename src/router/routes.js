@@ -70,44 +70,20 @@ const routes = [
         component: () => import('pages/Employee.vue')
       },
       {
-        path: 'products',
+        path: 'payments',
         meta: {
-          title: 'Sản phẩm'
+          title: 'Payments'
         },
-        name: 'products',
-        component: () => import('pages/Product.vue')
+        name: 'payments',
+        component: () => import('pages/Payment.vue')
       },
       {
         path: 'orders',
         meta: {
-          title: 'Đơn hàng'
+          title: 'Orders'
         },
         name: 'orders',
         component: () => import('pages/Order.vue')
-      },
-      {
-        path: 'blogs',
-        meta: {
-          title: 'Tin tức'
-        },
-        name: 'blogs',
-        component: () => import('pages/Article.vue')
-      },
-      {
-        path: 'contracts',
-        meta: {
-          title: 'Liên hệ'
-        },
-        name: 'contracts',
-        component: () => import('pages/Contact.vue')
-      },
-      {
-        path: 'banner',
-        meta: {
-          title: 'banner'
-        },
-        name: 'banner',
-        component: () => import('pages/Banner.vue')
       }
     ]
   }
