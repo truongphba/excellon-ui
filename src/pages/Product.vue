@@ -58,72 +58,43 @@ export default {
       filter: {},
       columns: [
         {
-          name: 'images',
-          label: 'Ảnh',
-          align: 'center',
-          field: 'images'
-        },
-        {
           name: 'name',
-          label: 'Tên',
+          label: 'Name',
           align: 'left',
           field: 'name'
         },
         {
-          name: 'price',
-          align: 'center',
-          label: 'Giá (VND)',
-          field: 'price'
-        },
-        {
-          name: 'discount',
-          align: 'center',
-          label: 'Giảm (%)',
-          field: 'discount'
-        },
-        {
-          name: 'quantity',
-          align: 'center',
-          label: 'SL',
-          field: 'quantity'
+          name: 'description',
+          label: 'Description',
+          align: 'left',
+          field: 'description'
         },
         {
           name: 'created_at',
           align: 'center',
-          label: 'Tạo/Cập nhật',
+          label: 'Created At',
           field: 'created_at'
         },
         {
           name: 'status',
           align: 'center',
-          label: 'Trạng thái',
+          label: 'Status',
           field: 'status'
         },
         {
           name: 'action',
           align: 'left',
-          label: 'Hành động'
+          label: 'Action'
         }
       ],
       filtersAttribute: [
         {
-          label: 'Tên sản phẩm',
+          label: 'Search',
           field: 'name',
           type: 'text'
         },
         {
-          label: 'Giảm giá',
-          field: 'discount',
-          type: 'number'
-        },
-        {
-          label: 'Danh mục',
-          field: 'categoryId',
-          type: 'select',
-          options: []
-        },
-        {
-          label: 'Trạng thái',
+          label: 'Status',
           field: 'status',
           type: 'select'
         }

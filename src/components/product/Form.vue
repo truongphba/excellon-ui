@@ -170,15 +170,6 @@ export default {
         //   rules: [val => !!val || 'Vui lòng nhập giá sản phẩm'],
         //   type: 'textarea'
         // },
-        price: {
-          label: 'Giá',
-          rules: [val => !!val || 'Vui lòng nhập giá sản phẩm'],
-          type: 'number'
-        },
-        discount: {
-          label: 'Giảm giá',
-          type: 'number'
-        },
         quantity: {
           label: 'Số lượng',
           rules: [val => !!val || 'Vui lòng nhập số lượng sản phẩm'],
