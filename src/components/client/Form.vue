@@ -5,14 +5,14 @@
       <div v-for="(formInput, key) in infoFormInputs"
            :key="key"
            class="col-6"
-           :class="{'col-sm-6' : formInput.type === 'number', 'q-mb-md': !formInput.rules}">
+           :class="{'col-sm-4' : formInput.type === 'number', 'q-mb-md': !formInput.rules}">
         <q-input
           :ref="key"
           :type="formInput.type || 'text'"
           outlined
           :label="formInput.label"
           :rules="formInput.rules || []"
-          v-model="initialService[key]"
+          v-model="initialClient[key]"
           :error="error && key in error.data.message"
         >
           <template v-slot:error>
@@ -22,23 +22,12 @@
           </template>
         </q-input>
       </div>
-      <q-select
-        class="col-12"
-        outlined
-        :rules="[val => val != null || 'Please choose department for service']"
-        v-model="initialService.departmentId"
-        :options="allDepartments"
-        label="Department"
-        option-value="id"
-        option-label="name"
-        emit-value
-        map-options
-      />
+
       <q-toggle
         v-if="isEdit"
         class="col-12"
         size="xl"
-        v-model="initialService.status"
+        v-model="initialClient.status"
         :true-value="1"
         :false-value="0"
         :label="labelToggle"
@@ -62,7 +51,7 @@
 export default {
   name: 'Form',
   props: {
-    service: {
+    client: {
       type: Object,
       default: () => {
       }
@@ -83,10 +72,6 @@ export default {
     isDetail: {
       type: Boolean,
       default: false
-    },
-    allDepartments: {
-      type: Array,
-      default: () => []
     }
   },
   data () {
@@ -95,28 +80,28 @@ export default {
       infoFormInputs: {
         name: {
           label: 'Name',
-          rules: [val => !!val || 'Please enter service name']
+          rules: [val => !!val || 'Please enter client name']
         },
-        price: {
-          label: 'Price',
-          rules: [val => !!val || 'Please enter service price', val => val > 0 || 'Price must be better than 0'],
-          type: 'number'
+        address: {
+          label: 'Address'
+        },
+        phoneNumber: {
+          label: 'PhoneNumber'
         }
       },
-      initialService: {},
-      departmentId: 0
+      initialClient: {}
     }
   },
   created () {
     if (this.isEdit) {
-      this.initialService = {
-        ...this.service
+      this.initialClient = {
+        ...this.client
       }
     }
   },
   computed: {
     labelToggle () {
-      return this.initialService.status === 1 ? 'Active' : 'Deactive'
+      return this.initialClient.status === 1 ? 'Active' : 'Deactive'
     }
   },
   methods: {
@@ -124,7 +109,7 @@ export default {
       this.$refs.myForm.validate().then(success => {
         if (success) {
           this.$emit('save', {
-            data: this.initialService,
+            data: this.initialClient,
             done: () => {
               if (!this.error || this.error.status !== 422) {
                 this.handleSubmit()
@@ -138,7 +123,7 @@ export default {
       const title = this.error ? 'Failed' : 'Success'
       this.$q.notify({
         color: this.error ? 'red' : 'green-4',
-        message: this.initialService.id ? `Update ${title}` : `Add new ${title}`
+        message: this.initialClient.id ? `Update ${title}` : `Add new ${title}`
       })
       this.$emit('close')
     }

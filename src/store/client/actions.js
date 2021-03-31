@@ -1,9 +1,9 @@
 import { httpClient } from 'src/api/http'
 import { cleanFilter } from 'src/utils/utils'
 
-const endPoint = '/products'
+const endPoint = '/Clients'
 
-export async function loadProducts ({
+export async function loadClients ({
   commit,
   dispatch
 }, {
@@ -11,7 +11,7 @@ export async function loadProducts ({
   page,
   limit
 }) {
-  commit('fetchProductsBegin')
+  commit('fetchClientsBegin')
   try {
     cleanFilter(filter)
     const currentPage = {
@@ -23,58 +23,66 @@ export async function loadProducts ({
       ...currentPage
     }).toString()
     const response = await httpClient.get(`${endPoint}?${queryParams}`)
-    const clientResponse = await httpClient.get('Clients/All')
-    const clients = clientResponse.data
-    const products = response.data
-    for (let i = 0; i < products.length; i++) {
-      products[i].clientName = await clients.find(client => client.id === products[i].clientId).name
-    }
-    commit('fetchProductsSuccess', {
-      data: products,
+    console.log(response)
+    commit('fetchClientsSuccess', {
+      data: response.data,
       total: response.total,
       currentPage: currentPage,
       filter: filter
     })
   } catch (error) {
-    commit('fetchProductsError', error.response)
+    commit('fetchClientsError', error.response)
     return null
   }
 }
 
-export async function loadProduct ({
+export async function loadClient ({
   commit,
   dispatch
 }, id) {
   try {
-    commit('fetchProductBegin')
+    commit('fetchClientBegin')
     const response = await httpClient.get(`${endPoint}/${id}`)
-    commit('fetchProductSuccess', response)
+    commit('fetchClientSuccess', response)
   } catch (error) {
-    commit('fetchProductError', error.response)
+    commit('fetchClientError', error.response)
   }
 }
 
-export async function saveProduct ({ commit }, object) {
-  commit('saveProductBegin')
+export async function saveClient ({ commit }, object) {
+  commit('saveClientBegin')
   try {
     if (object.id) {
       await httpClient.put(`${endPoint}/${object.id}`, object)
     } else {
       await httpClient.post(endPoint, object)
     }
-    commit('saveProductSuccess')
+    commit('saveClientSuccess')
   } catch (error) {
-    commit('saveProductError', error.response)
+    commit('saveClientError', error.response)
   }
 }
 
-export async function deleteProduct ({ commit }, id) {
-  commit('deleteProductBegin')
+export async function deleteClient ({ commit }, id) {
+  commit('deleteClientBegin')
   try {
     await httpClient.del(`${endPoint}/${id}`)
-    commit('deleteProductSuccess')
+    commit('deleteClientSuccess')
   } catch (error) {
-    commit('deleteProductError', error.response)
+    commit('deleteClientError', error.response)
+  }
+}
+
+export async function loadAllClients ({ commit, dispatch }) {
+  commit('fetchAllClientsBegin')
+  try {
+    const response = await httpClient.get(`${endPoint}/All`)
+    commit('fetchAllClientsSuccess', {
+      data: response.data
+    })
+  } catch (error) {
+    commit('fetchAllClientsError', error.response)
+    return null
   }
 }
 

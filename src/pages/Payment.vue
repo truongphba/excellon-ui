@@ -1,6 +1,6 @@
 <template>
   <q-page class="q-py-sm q-pl-sm">
-    <Table :data="services"
+    <Table :data="departments"
            :columns="columns"
            :is-loading="isLoading"
            :total="total"
@@ -21,11 +21,10 @@
     </Table>
     <q-dialog v-model="isShow">
       <FormDialog :is-edit="isEdit" :is-large="true">
-        <Form :service="service"
+        <Form :department="department"
               :is-saved="isSaved"
               :is-edit="isEdit"
               :error="error"
-              :all-departments="allDepartments"
               @save="handleSave"
               @close="handleClose"
         />
@@ -39,11 +38,11 @@ import { mapState, mapActions } from 'vuex'
 import Table from 'src/components/common/Table'
 import FormDialog from 'src/components/common/FormDialog'
 import FilterTable from 'src/components/common/FilterTable'
-import Form from 'components/service/Form'
+import Form from 'components/department/Form'
 import { Constants } from 'src/utils/const'
 
 export default {
-  name: 'Services',
+  name: 'Payments',
   components: {
     Form,
     Table,
@@ -58,22 +57,10 @@ export default {
       filter: {},
       columns: [
         {
-          name: 'name',
-          label: 'Name',
+          name: 'client',
+          label: 'client',
           align: 'left',
-          field: 'name'
-        },
-        {
-          name: 'price',
-          align: 'center',
-          label: 'Price ($)',
-          field: 'price'
-        },
-        {
-          name: 'departmentName',
-          label: 'Department',
-          align: 'left',
-          field: 'departmentName'
+          field: 'clientId'
         },
         {
           name: 'created_at',
@@ -103,37 +90,20 @@ export default {
           label: 'Status',
           field: 'status',
           type: 'select'
-        },
-        {
-          label: 'Department',
-          field: 'departmentId',
-          type: 'select',
-          options: []
         }
       ]
     }
   },
-  async mounted () {
-    await this.loadAllDepartments()
-    this.filtersAttribute
-      .find(x => x.field === 'departmentId')
-      .options = [
-        ...this.allDepartments
-      ]
-  },
   computed: {
-    ...mapState('service', [
-      'services',
+    ...mapState('department', [
+      'departments',
       'total',
       'isLoading',
-      'service',
+      'department',
       'error',
       'isSaved',
       'currentPage',
       'isDeleted'
-    ]),
-    ...mapState('department', [
-      'allDepartments'
     ]),
     filterStatuses () {
       return Constants.Status
@@ -141,15 +111,14 @@ export default {
   },
   methods: {
     ...mapActions({
-      loadServices: 'service/loadServices',
-      loadService: 'service/loadService',
-      saveService: 'service/saveService',
-      deleteService: 'service/deleteService',
-      clearError: 'service/clearError',
-      loadAllDepartments: 'department/loadAllDepartments'
+      loadDepartments: 'department/loadDepartments',
+      loadDepartment: 'department/loadDepartment',
+      saveDepartment: 'department/saveDepartment',
+      deleteDepartment: 'department/deleteDepartment',
+      clearError: 'department/clearError'
     }),
     async onRequest ({ data, done }) {
-      await this.loadServices({
+      await this.loadDepartments({
         filter: this.filter,
         page: data.page,
         limit: data.limit
@@ -159,7 +128,7 @@ export default {
       }
     },
     async handleSave ({ data, done }) {
-      await this.saveService(data)
+      await this.saveDepartment(data)
       if (done) {
         done()
       }
@@ -169,12 +138,12 @@ export default {
       this.isEdit = false
       if (id != null) {
         this.isEdit = true
-        await this.loadService(id)
+        await this.loadDepartment(id)
       }
       this.isShow = true
     },
     async handleDelete ({ id, done }) {
-      await this.deleteService(id)
+      await this.deleteDepartment(id)
       if (done) {
         done()
       }

@@ -86,6 +86,19 @@
             </q-item>
             <q-item
               active-class="tab-active"
+              :to="{name: 'clients'}"
+              class="q-ma-sm navigation-item"
+              clickable
+              v-ripple
+            >
+              <q-item-section avatar>
+                <q-icon name="fas fa-user-friends"/>
+              </q-item-section>
+
+              <q-item-section>Client</q-item-section>
+            </q-item>
+            <q-item
+              active-class="tab-active"
               :to="{name: 'products'}"
               class="q-ma-sm navigation-item"
               clickable
@@ -96,6 +109,19 @@
               </q-item-section>
 
               <q-item-section>Products</q-item-section>
+            </q-item>
+            <q-item
+              active-class="tab-active"
+              :to="{name: 'payments'}"
+              class="q-ma-sm navigation-item"
+              clickable
+              v-ripple
+            >
+              <q-item-section avatar>
+                <q-icon name="fas fa-money-check-alt"/>
+              </q-item-section>
+
+              <q-item-section>Payment</q-item-section>
             </q-item>
           </q-list>
         </q-scroll-area>

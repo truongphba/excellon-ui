@@ -22,7 +22,7 @@
     <q-dialog v-model="isShow">
       <FormDialog :is-edit="isEdit" :is-large="true">
         <Form :product="product"
-              :all-categories="allCategories"
+              :all-clients="allClients"
               :is-saved="isSaved"
               :is-edit="isEdit"
               :error="error"
@@ -70,6 +70,12 @@ export default {
           field: 'description'
         },
         {
+          name: 'clientName',
+          label: 'Client',
+          align: 'left',
+          field: 'clientName'
+        },
+        {
           name: 'created_at',
           align: 'center',
           label: 'Created At',
@@ -97,16 +103,22 @@ export default {
           label: 'Status',
           field: 'status',
           type: 'select'
+        },
+        {
+          label: 'Client',
+          field: 'clientId',
+          type: 'select',
+          options: []
         }
       ]
     }
   },
   async mounted () {
-    await this.loadAllCategories()
+    await this.loadAllClients()
     this.filtersAttribute
-      .find(x => x.field === 'categoryId')
+      .find(x => x.field === 'clientId')
       .options = [
-        ...this.allCategories
+        ...this.allClients
       ]
   },
   computed: {
@@ -120,8 +132,8 @@ export default {
       'currentPage',
       'isDeleted'
     ]),
-    ...mapState('category', [
-      'allCategories'
+    ...mapState('client', [
+      'allClients'
     ]),
     filterStatuses () {
       return Constants.Status
@@ -133,7 +145,7 @@ export default {
       loadProduct: 'product/loadProduct',
       saveProduct: 'product/saveProduct',
       deleteProduct: 'product/deleteProduct',
-      loadAllCategories: 'category/loadAllCategories',
+      loadAllClients: 'client/loadAllClients',
       clearError: 'product/clearError'
     }),
     async onRequest ({ data, done }) {
@@ -178,6 +190,19 @@ export default {
         data: this.currentPage
       })
       this.isShow = false
+    },
+    filterFn (val, update, option) {
+      if (val === '') {
+        update(() => {
+          this.options = option
+        })
+        return
+      }
+
+      update(() => {
+        const needle = val.toLowerCase()
+        this.options = option.filter(v => v.toLowerCase().indexOf(needle) > -1)
+      })
     }
   }
 }
