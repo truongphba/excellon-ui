@@ -105,7 +105,7 @@
               v-ripple
             >
               <q-item-section avatar>
-                <q-icon name="fas fa-globe"/>
+                <q-icon name="fas fa-luggage-cart"/>
               </q-item-section>
 
               <q-item-section>Products</q-item-section>
