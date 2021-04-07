@@ -59,7 +59,7 @@
 <script>
 import axios from 'axios'
 // import BarChartSevenDay from 'components/chart/BarChartSevenDay'
-import BarChartMonth from 'components/chart/LineChartMonth'
+import BarChartMonth from 'components/chart/BarChartMonth'
 
 export default {
   name: 'Dashboard',
@@ -89,19 +89,20 @@ export default {
   },
   methods: {
     async getChartBySevenDate () {
-      const { data } = await axios.get(process.env.API_URL + '/Chart/sevenday')
-      data.data.forEach(d => {
+      const { data } = await axios.get(process.env.API_URL + '/Chart/monthPayment')
+      data.totalCost.forEach(d => {
         const date2 = d.createDate
         const total2 = d.totalCost
         this.totalBySevenDay.push({ date2, total2 })
       })
     },
     async getChartByMonth () {
-      const { data } = await axios.get(process.env.API_URL + '/Chart/month')
-      data.data.forEach(d => {
-        const date = d.createDate
-        const total = d.totalCost
-        this.totalByMonth.push({ date, total })
+      const { data } = await axios.get(process.env.API_URL + '/Chart/monthPayment')
+      console.log(data)
+      data.totalCount.forEach(d => {
+        const date1 = d.createDate
+        const total1 = d.count
+        this.totalByMonth.push({ date1, total1 })
       })
     }
   }

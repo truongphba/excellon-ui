@@ -1,8 +1,8 @@
 <script>
-import { Line } from 'vue-chartjs'
+import { Bar } from 'vue-chartjs'
 export default {
   name: 'BarChartMonth',
-  extends: Line,
+  extends: Bar,
   props: {
     label: {
       type: String
@@ -21,10 +21,9 @@ export default {
     }
   },
   mounted () {
-    const months = this.chartData.map(d => d.date).reverse()
-    const totals = this.chartData.map(d => d.total).reverse()
+    const months = this.chartData.map(d => d.date1).reverse()
+    const totals = this.chartData.map(d => d.total1).reverse()
     const totals2 = this.chartData2.map(d => d.total2).reverse()
-    console.log(totals2, totals)
     const { borderColor, pointColor, pointBackgroundColor, backgroundColor } = this.chartColors
     this.renderChart({
       labels: months,
