@@ -1,4 +1,5 @@
 export default {
+  allEmployees: [],
   employees: [],
   total: 0,
   currentPage: {},

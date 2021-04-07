@@ -78,3 +78,20 @@ export function clearStateFilter (state) {
 export function clearStateError (state) {
   state.error = null
 }
+
+export function fetchAllServicesBegin (state) {
+  state.allServices = []
+  state.error = null
+  state.isLoading = true
+}
+
+export function fetchAllServicesSuccess (state, { data }) {
+  state.allServices = data
+  state.error = null
+  state.isLoading = false
+}
+
+export function fetchAllServicesError (state, error) {
+  state.error = error
+  state.isLoading = false
+}

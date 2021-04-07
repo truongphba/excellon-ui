@@ -4,9 +4,9 @@ export const Constants = {
     { label: 'Deactive', value: 0 }
   ],
   OrderStatus: [
-    { label: 'Chờ xử lý', value: 2 },
-    { label: 'Đã xử lý', value: 1 },
-    { label: 'Huỷ', value: 0 }
+    { label: 'Done', value: 1 },
+    { label: 'Pending', value: 2 },
+    { label: 'Cancel', value: 0 }
   ],
   BannerCodes: [
     'banner_about_us',

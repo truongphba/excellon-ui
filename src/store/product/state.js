@@ -1,4 +1,5 @@
 export default {
+  allProducts: [],
   products: [],
   total: 0,
   currentPage: {},

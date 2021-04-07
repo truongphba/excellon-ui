@@ -85,3 +85,15 @@ export async function clearFilter ({ commit }) {
 export async function clearError ({ commit }) {
   commit('clearStateError')
 }
+export async function loadAllServices ({ commit, dispatch }) {
+  commit('fetchAllServicesBegin')
+  try {
+    const response = await httpClient.get(`${endPoint}/All`)
+    commit('fetchAllServicesSuccess', {
+      data: response.data
+    })
+  } catch (error) {
+    commit('fetchAllServicesError', error.response)
+    return null
+  }
+}

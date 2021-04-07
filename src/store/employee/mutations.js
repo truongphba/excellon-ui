@@ -71,6 +71,22 @@ export function deleteEmployeeError (state, error) {
   state.isDeleting = false
 }
 
+export function fetchAllEmployeesBegin (state) {
+  state.allEmployees = []
+  state.error = null
+  state.isLoading = true
+}
+
+export function fetchAllEmployeesSuccess (state, { data }) {
+  state.allEmployees = data
+  state.error = null
+  state.isLoading = false
+}
+
+export function fetchAllEmployeesError (state, error) {
+  state.error = error
+  state.isLoading = false
+}
 export function clearStateFilter (state) {
   state.filter = {}
 }

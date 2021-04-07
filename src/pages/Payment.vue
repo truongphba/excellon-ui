@@ -1,6 +1,6 @@
 <template>
   <q-page class="q-py-sm q-pl-sm">
-    <Table :data="departments"
+    <Table :data="payments"
            :columns="columns"
            :is-loading="isLoading"
            :total="total"
@@ -10,6 +10,7 @@
            @request="onRequest"
            @show="showData"
            @delete="handleDelete"
+           :is-order="true"
     >
       <template v-slot:filter-top>
         <FilterTable :filtersAttribute="filtersAttribute"
@@ -18,15 +19,48 @@
                      :filter-statuses="filterStatuses"
         />
       </template>
+      <template v-slot:action="props">
+        <div class="q-gutter-sm">
+          <q-btn dense
+                 color="primary"
+                 icon="done"
+                 v-if="props.row.status === 2"
+                 @click="confirm({id: props.row.id, status: 1})">
+            <q-tooltip>
+              Confirm
+            </q-tooltip>
+          </q-btn>
+          <q-btn dense
+                 color="red"
+                 icon="clear"
+                 v-if="props.row.status === 2"
+                 @click="confirm({id: props.row.id, status: 0})">
+            <q-tooltip>
+              Cancel
+            </q-tooltip>
+          </q-btn>
+          <q-btn dense
+                 color="warning"
+                 icon="far fa-eye"
+                 @click="showData(props.row.id)"
+          >
+            <q-tooltip>
+              Detail
+            </q-tooltip>
+          </q-btn>
+        </div>
+      </template>
     </Table>
     <q-dialog v-model="isShow">
-      <FormDialog :is-edit="isEdit" :is-large="true">
-        <Form :department="department"
+      <FormDialog :is-edit="isEdit" :is-large="true" :is-payment="isEdit">
+        <Form :payment="payment"
               :is-saved="isSaved"
               :is-edit="isEdit"
               :error="error"
               @save="handleSave"
               @close="handleClose"
+              :all-clients="allClients"
+              :filter-statuses="filterStatuses"
         />
       </FormDialog>
     </q-dialog>
@@ -38,7 +72,7 @@ import { mapState, mapActions } from 'vuex'
 import Table from 'src/components/common/Table'
 import FormDialog from 'src/components/common/FormDialog'
 import FilterTable from 'src/components/common/FilterTable'
-import Form from 'components/department/Form'
+import Form from 'components/payment/Form'
 import { Constants } from 'src/utils/const'
 
 export default {
@@ -57,10 +91,28 @@ export default {
       filter: {},
       columns: [
         {
-          name: 'client',
-          label: 'client',
+          name: 'id',
+          label: 'Id',
+          align: 'center',
+          field: 'id'
+        },
+        {
+          name: 'clientName',
+          label: 'Client',
           align: 'left',
-          field: 'clientId'
+          field: 'clientName'
+        },
+        {
+          name: 'employeeName',
+          label: 'Employee',
+          align: 'left',
+          field: 'employeeName'
+        },
+        {
+          name: 'totalCost',
+          label: 'Total Cost($)',
+          align: 'left',
+          field: 'totalCost'
         },
         {
           name: 'created_at',
@@ -82,43 +134,61 @@ export default {
       ],
       filtersAttribute: [
         {
-          label: 'Search',
-          field: 'keyword',
+          label: 'Payment Id',
+          field: 'id',
           type: 'text'
         },
         {
           label: 'Status',
           field: 'status',
           type: 'select'
+        },
+        {
+          label: 'Created Date',
+          field: 'createdAt',
+          type: 'date'
         }
       ]
     }
   },
+  async mounted () {
+    await this.loadAllClients()
+    await this.loadAllEmployees(1)
+    // this.filtersAttribute
+    //   .find(x => x.field === 'categoryId')
+    //   .options = [
+    //     ...this.allDepartments
+    //   ]
+  },
   computed: {
-    ...mapState('department', [
-      'departments',
+    ...mapState('payment', [
+      'payments',
       'total',
       'isLoading',
-      'department',
+      'payment',
       'error',
       'isSaved',
       'currentPage',
       'isDeleted'
     ]),
+    ...mapState('client', [
+      'allClients'
+    ]),
     filterStatuses () {
-      return Constants.Status
+      return Constants.OrderStatus
     }
   },
   methods: {
     ...mapActions({
-      loadDepartments: 'department/loadDepartments',
-      loadDepartment: 'department/loadDepartment',
-      saveDepartment: 'department/saveDepartment',
-      deleteDepartment: 'department/deleteDepartment',
-      clearError: 'department/clearError'
+      loadPayments: 'payment/loadPayments',
+      loadPayment: 'payment/loadPayment',
+      savePayment: 'payment/savePayment',
+      clearError: 'payment/clearError',
+      loadAllClients: 'client/loadAllClients',
+      loadAllEmployees: 'employee/loadAllEmployees'
     }),
     async onRequest ({ data, done }) {
-      await this.loadDepartments({
+      await this.loadPayments({
         filter: this.filter,
         page: data.page,
         limit: data.limit
@@ -128,7 +198,7 @@ export default {
       }
     },
     async handleSave ({ data, done }) {
-      await this.saveDepartment(data)
+      await this.savePayment(data)
       if (done) {
         done()
       }
@@ -138,7 +208,7 @@ export default {
       this.isEdit = false
       if (id != null) {
         this.isEdit = true
-        await this.loadDepartment(id)
+        await this.loadPayment(id)
       }
       this.isShow = true
     },
@@ -159,6 +229,34 @@ export default {
         data: this.currentPage
       })
       this.isShow = false
+    },
+    async confirm (object) {
+      const title = object.status === 1 ? 'Confirm' : 'Cancel'
+      this.$q
+        .dialog({
+          title: 'Confirm',
+          message: `Do you sure ${title} this contract?`,
+          ok: 'Yes',
+          cancel: 'No',
+          persistent: true
+        })
+        .onOk(async () => {
+          await this.savePayment(object)
+          if (this.error) {
+            this.$q.notify({
+              color: 'red',
+              message: 'Save payment fail'
+            })
+          } else {
+            await this.onRequest({
+              data: this.currentPage
+            })
+            this.$q.notify({
+              color: 'green-4',
+              message: 'Save payment success'
+            })
+          }
+        })
     }
   }
 }

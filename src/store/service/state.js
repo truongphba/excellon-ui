@@ -1,5 +1,6 @@
 export default {
   services: [],
+  allServices: [],
   total: 0,
   currentPage: {},
   filter: {},

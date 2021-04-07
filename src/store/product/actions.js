@@ -85,3 +85,16 @@ export async function clearFilter ({ commit }) {
 export async function clearError ({ commit }) {
   commit('clearStateError')
 }
+
+export async function loadAllProducts ({ commit, dispatch }, clientId) {
+  commit('fetchAllProductsBegin')
+  try {
+    const response = await httpClient.get(`${endPoint}/All?clientId=` + clientId)
+    commit('fetchAllProductsSuccess', {
+      data: response.data
+    })
+  } catch (error) {
+    commit('fetchAllProductsError', error.response)
+    return null
+  }
+}
