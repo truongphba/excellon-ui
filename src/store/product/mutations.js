@@ -71,6 +71,23 @@ export function deleteProductError (state, error) {
   state.isDeleting = false
 }
 
+export function fetchAllProductsBegin (state) {
+  state.allProducts = []
+  state.error = null
+  state.isLoading = true
+}
+
+export function fetchAllProductsSuccess (state, { data }) {
+  state.allProducts = data
+  state.error = null
+  state.isLoading = false
+}
+
+export function fetchAllProductsError (state, error) {
+  state.error = error
+  state.isLoading = false
+}
+
 export function clearStateFilter (state) {
   state.filter = {}
 }

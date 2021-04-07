@@ -85,3 +85,16 @@ export async function clearFilter ({ commit }) {
 export async function clearError ({ commit }) {
   commit('clearStateError')
 }
+
+export async function loadAllEmployees ({ commit, dispatch }, departmentId) {
+  commit('fetchAllEmployeesBegin')
+  try {
+    const response = await httpClient.get(`${endPoint}/All?departmentId=` + departmentId)
+    commit('fetchAllEmployeesSuccess', {
+      data: response.data
+    })
+  } catch (error) {
+    commit('fetchAllEmployeesError', error.response)
+    return null
+  }
+}
