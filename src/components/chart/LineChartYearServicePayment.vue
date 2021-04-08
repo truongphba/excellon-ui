@@ -1,9 +1,9 @@
 <script>
-import { Bar } from 'vue-chartjs'
+import { Line } from 'vue-chartjs'
 
 export default {
-  name: 'BarChartMonth',
-  extends: Bar,
+  name: 'LineChartYearServicePayment',
+  extends: Line,
   props: {
     label: {
       type: String
@@ -19,19 +19,29 @@ export default {
     }
   },
   mounted () {
+    console.log(this.chartData)
     const months = this.chartData.map(d => d.date)
-    const totals = this.chartData.map(d => d.total)
+    const totalInbound = this.chartData.map(d => d.total)
+    const totalOutbound = this.chartData.map(d => d.total).reverse()
     const { borderColor, pointColor, pointBackgroundColor, backgroundColor } = this.chartColors
     this.renderChart({
       labels: months,
       datasets: [
         {
-          label: 'Total Cost',
-          data: totals,
+          label: 'Inbound',
+          data: totalInbound,
           borderColor: borderColor,
           pointColor: pointColor,
           pointBackgroundColor: pointBackgroundColor,
           backgroundColor: backgroundColor
+        },
+        {
+          label: 'Outbound',
+          data: totalOutbound,
+          borderColor: '#f542c2',
+          pointColor: '#f542c2',
+          pointBackgroundColor: '#f542c2',
+          backgroundColor: '#f542c2'
         }
       ]
     },

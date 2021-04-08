@@ -1,7 +1,8 @@
 <script>
 import { Bar } from 'vue-chartjs'
+
 export default {
-  name: 'BarChartSevenDay',
+  name: 'BarChartCountPayment',
   extends: Bar,
   props: {
     label: {
@@ -18,19 +19,21 @@ export default {
     }
   },
   mounted () {
-    const months = this.chartData.map(d => d.date).reverse()
-    const totals = this.chartData.map(d => d.total).reverse()
+    const months = this.chartData.map(d => d.date)
+    const count = this.chartData.map(d => d.count)
     const { borderColor, pointColor, pointBackgroundColor, backgroundColor } = this.chartColors
     this.renderChart({
       labels: months,
-      datasets: [{
-        label: this.label,
-        data: totals,
-        borderColor: borderColor,
-        pointColor: pointColor,
-        pointBackgroundColor: pointBackgroundColor,
-        backgroundColor: backgroundColor
-      }]
+      datasets: [
+        {
+          label: 'Number of Payment',
+          data: count,
+          borderColor: borderColor,
+          pointColor: pointColor,
+          pointBackgroundColor: pointBackgroundColor,
+          backgroundColor: backgroundColor
+        }
+      ]
     },
     this.options)
   }
