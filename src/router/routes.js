@@ -12,7 +12,11 @@ const routes = [
     name: 'logout',
     component: () => import('pages/Logout.vue')
   },
-
+  {
+    path: '/landing',
+    name: 'landing',
+    component: () => import('pages/Landing.vue')
+  },
   // admin
   {
     path: '/',

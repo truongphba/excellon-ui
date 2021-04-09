@@ -94,7 +94,7 @@ export default {
       isMultiple: true,
       infoFormInputs: {
         userName: {
-          label: 'Name',
+          label: 'Username',
           rules: [val => !!val || 'Please enter employee name']
         },
         email: {

@@ -26,8 +26,7 @@
                clearable
                outlined
                dense
-               mask="##/##/####"
-               v-model="myFilter[item.field]"
+               :value="myFilter[item.field] ? myFilter[item.field].from + '-' +myFilter[item.field].to : ''"
                :label="item.label">
         <template v-slot:append>
           <q-icon name="event"
@@ -38,6 +37,7 @@
               <q-date v-model="myFilter[item.field]"
                       color="primary"
                       mask="DD/MM/YYYY"
+                      range
                       @input="closeDatePicker">
               </q-date>
             </q-popup-proxy>
@@ -52,7 +52,7 @@
                 :options="item.options || filterStatuses"
                 :label="item.label"
                 :option-value="item.options ? 'id' : 'value'"
-                :option-label="item.options ? 'name' : 'label'"
+                :option-label="item.options ? (item.field === 'employeeId' ?  'userName' : 'name') : 'label'"
                 emit-value
                 map-options
                 v-if="item.type === 'select'"
@@ -114,12 +114,13 @@ export default {
   watch: {
     myFilter: {
       handler (val) {
+        console.log(val)
         let newDate = ''
-        if (val.date) {
-          newDate = val.date.split('/').reverse().join('/')
+        if (val.createdAt) {
+          newDate = val.createdAt.from + '_' + val.createdAt.to
           val = {
             ...val,
-            date: newDate
+            createdAt: newDate
           }
         }
         this.$emit('doFilter', val)

@@ -159,7 +159,7 @@ export default {
       const { username, password } = this
       this.authRequest({ username, password })
         .then(() => {
-          this.$router.push({ name: 'departments' })
+          this.$router.push({ name: 'dashboard' })
         })
         // eslint-disable-next-line handle-callback-err
         .catch(err => {
