@@ -31,7 +31,7 @@
         <hr/>
         <q-scroll-area style="height:100%;">
           <q-list padding>
-            <q-item
+            <q-item v-if="user.departmentId === 1"
               active-class="tab-active"
               exact
               :to="{name: 'dashboard'}"
@@ -45,7 +45,7 @@
 
               <q-item-section>Dashboard</q-item-section>
             </q-item>
-            <q-item
+            <q-item v-if="user.departmentId === 1 || user.departmentId === 3"
               active-class="tab-active"
               :to="{name: 'departments'}"
               class="q-ma-sm navigation-item"
@@ -58,7 +58,7 @@
 
               <q-item-section>Department</q-item-section>
             </q-item>
-            <q-item
+            <q-item v-if="user.departmentId === 1 || user.departmentId === 3"
               active-class="tab-active"
               :to="{name: 'employees'}"
               class="q-ma-sm navigation-item"
@@ -71,7 +71,7 @@
 
               <q-item-section>Employee</q-item-section>
             </q-item>
-            <q-item
+            <q-item v-if="user.departmentId === 1"
               active-class="tab-active"
               :to="{name: 'services'}"
               class="q-ma-sm navigation-item"
@@ -84,7 +84,7 @@
 
               <q-item-section>Service</q-item-section>
             </q-item>
-            <q-item
+            <q-item v-if="user.departmentId === 1 || user.departmentId === 2"
               active-class="tab-active"
               :to="{name: 'clients'}"
               class="q-ma-sm navigation-item"
@@ -97,7 +97,7 @@
 
               <q-item-section>Client</q-item-section>
             </q-item>
-            <q-item
+            <q-item v-if="user.departmentId === 1 || user.departmentId === 2"
               active-class="tab-active"
               :to="{name: 'products'}"
               class="q-ma-sm navigation-item"
@@ -110,7 +110,7 @@
 
               <q-item-section>Products</q-item-section>
             </q-item>
-            <q-item
+            <q-item v-if="user.departmentId === 1 || user.departmentId === 4"
               active-class="tab-active"
               :to="{name: 'payments'}"
               class="q-ma-sm navigation-item"
@@ -143,7 +143,7 @@
 </template>
 
 <script>
-// import { mapActions, mapState } from 'vuex'
+import { mapState } from 'vuex'
 
 export default {
   data () {
@@ -157,6 +157,7 @@ export default {
   async mounted () {
     this.iconArrow = 'expand_less'
     this.show = false
+    console.log(this.user)
   },
   methods: {
     // ...mapActions({
@@ -177,12 +178,12 @@ export default {
         this.iconArrow = 'expand_less'
       }
     }
+  },
+  computed: {
+    ...mapState('auth', [
+      'user'
+    ])
   }
-  // computed: {
-  //   ...mapState('auth', [
-  //     'user'
-  //   ])
-  // }
 }
 </script>
 

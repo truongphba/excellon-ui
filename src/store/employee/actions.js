@@ -60,7 +60,7 @@ export async function saveEmployee ({ commit }, object) {
     if (object.id) {
       await httpClient.put(`${endPoint}/${object.id}`, object)
     } else {
-      await httpClient.post(endPoint, object)
+      await httpClient.post('/Employee/Register', object)
     }
     commit('saveEmployeeSuccess')
   } catch (error) {

@@ -1,14 +1,14 @@
 export function authBegin (state) {
   state.error = null
   state.isLoading = true
-  state.user = { email: { value: null, status: null } }
+  state.user = {}
   state.rawPermission = {}
 }
 
-export function authSuccess (state, { token, rawPermission }) {
+export function authSuccess (state, { token, user }) {
   state.isLoading = false
   state.token = token
-  state.rawPermission = rawPermission
+  state.user = user
   state.isLoggedIn = true
 }
 

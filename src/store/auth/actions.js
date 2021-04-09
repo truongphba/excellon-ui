@@ -14,12 +14,15 @@ export async function authRequest ({ commit, dispatch }, user) {
         'Content-Type': 'application/x-www-form-urlencoded'
       }
     })
-      .then(resp => {
+      .then(async resp => {
         const data = resp.data
-        localStorage.setItem(process.env.TOKEN_NAME, data.access_token)
+        await localStorage.setItem(process.env.TOKEN_NAME, data.access_token)
         axios.defaults.headers.common.Authorization = 'Bearer ' + data.access_token
+        const response = await httpClient.get('/Employee/EmployeeInfo')
+        console.log(response)
         commit('authSuccess', {
-          token: data.access_token
+          token: data.access_token,
+          user: response
         })
         resolve(resp)
       })

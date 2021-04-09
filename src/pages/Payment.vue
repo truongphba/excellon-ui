@@ -139,6 +139,18 @@ export default {
           type: 'text'
         },
         {
+          label: 'Client',
+          field: 'clientId',
+          type: 'select',
+          options: []
+        },
+        {
+          label: 'Employee',
+          field: 'employeeId',
+          type: 'select',
+          options: []
+        },
+        {
           label: 'Status',
           field: 'status',
           type: 'select'
@@ -154,11 +166,16 @@ export default {
   async mounted () {
     await this.loadAllClients()
     await this.loadAllEmployees(1)
-    // this.filtersAttribute
-    //   .find(x => x.field === 'categoryId')
-    //   .options = [
-    //     ...this.allDepartments
-    //   ]
+    this.filtersAttribute
+      .find(x => x.field === 'clientId')
+      .options = [
+        ...this.allClients
+      ]
+    this.filtersAttribute
+      .find(x => x.field === 'employeeId')
+      .options = [
+        ...this.allEmployees
+      ]
   },
   computed: {
     ...mapState('payment', [
@@ -173,6 +190,9 @@ export default {
     ]),
     ...mapState('client', [
       'allClients'
+    ]),
+    ...mapState('employee', [
+      'allEmployees'
     ]),
     filterStatuses () {
       return Constants.OrderStatus
