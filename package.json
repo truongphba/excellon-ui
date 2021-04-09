@@ -1,9 +1,9 @@
 {
-  "name": "cms",
+  "name": "excellon",
   "version": "0.0.1",
-  "description": "Go Sport CMS",
-  "productName": "Go Sport CMS",
-  "author": "phanhoainm6998@gmail.com",
+  "description": "Excellon",
+  "productName": "Excellon",
+  "author": "truongph.ba@gmail.com",
   "private": true,
   "scripts": {
     "lint": "eslint --ext .js,.vue ./",

@@ -77,7 +77,7 @@
               />
             </div>
           </template>
-          <div class="row">
+          <div class="row" v-if="isEdit">
             <q-select
               ref="status"
               outlined

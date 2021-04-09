@@ -26,7 +26,7 @@
         <q-toolbar>
           <q-avatar>
           </q-avatar>
-          <q-toolbar-title>Admin</q-toolbar-title>
+          <q-toolbar-title>Excellon</q-toolbar-title>
         </q-toolbar>
         <hr/>
         <q-scroll-area style="height:100%;">
