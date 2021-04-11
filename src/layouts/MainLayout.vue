@@ -131,7 +131,7 @@
                     v-ripple
             >
               <q-item-section avatar>
-                <q-icon name="fas fa-money-check-alt"/>
+                <q-icon name="fas fa-id-card"/>
               </q-item-section>
 
               <q-item-section>Contacts</q-item-section>
