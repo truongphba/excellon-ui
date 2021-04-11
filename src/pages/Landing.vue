@@ -28,7 +28,7 @@
             <div class="fs2">Call Center toàn diện cho mọi doanh nghiệp</div>
             <div class="c3 fs15 mt15">Với sự linh hoạt và dễ dàng mở rộng, chúng tôi cung cấp giải pháp Call Center chuyên nghiệp và tối ưu chi phí cho mọi doanh nghiệp (SMEs, Startups, Enterprises).</div>
             <div class="grid">
-              <div class="btn bn bgcgd cf pa10 plr25 bra5 mt25">Liên hệ tư vấn >></div>
+              <div class="btn bn bgcgd cf pa10 plr25 bra5 mt25 dkntt">Đăng ký nhận tư vấn >></div>
             </div>
           </div>
           <div class="col-xs-6">
@@ -142,13 +142,93 @@
         </div>
       </div>
     </div>
+    //form ddawng kys thono tin
+    <div class="pf tl0 bgc03 wh1v bfb1 true dn formRegister">
+      <div class="pr wh1"><div class="pa tl50 tt bgcf bra5 bóng b1sd oh col-md-4 col-xs-12">
+        <div class="pa10 bb1 bss bcd cgd">Nhập thông tin đăng ký</div>
+        <div class="pa10">
+          <form class="">
+          <label for="name" class="db mtb5 bấmĐc">Họ và tên:</label>
+          <input type="text" id="name" name="name" class="mtb5 db bra5 oh pa5 w1 b1sd importValue" placeholder="Nhập họ và tên">
+          <label for="phoneNumber" class="db mtb5 bấmĐc">Số điện thoại:</label>
+          <input type="tel" id="phoneNumber" name="phoneNumber" class="mtb5 db bra5 oh pa5 w1 b1sd importValue" placeholder="Nhập số điện thoại" pattern="/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/" required="required">
+          <label for="email" class="db mtb5 bấmĐc">Email:</label>
+          <input type="email" id="email" name="email" class="mtb5 db bra5 oh pa5 w1 b1sd importValue" placeholder="Nhập email" required="required">
+          <label for="companyName" class="db mtb5 bấmĐc">Tên công ty:</label>
+          <input type="text" id="companyName" name="companyName" class="mtb5 db bra5 oh pa5 w1 b1sd importValue" placeholder="Nhập Tên công ty" required="required">
+          <label for="description" class="db mtb5 bấmĐc">Mô tả:</label>
+          <textarea type="text" id="description" name="description" class="mtb5 db bra5 oh pa5 w1 b1sd importValue" placeholder="Nhập mô tả"></textarea>
+          <div class="ptb25 tar grid"><div class="plr15 ptb10 btn bn bra5 shineh bgcrd cf mr15 closeRegister">Đóng</div>
+            <div class="plr15 ptb10 btn bn bra5 shineh bgcgd cf">Đăng ký</div>
+          </div>
+        </form>
+        </div>
+      </div>
+      </div>
+    </div>
   </div>
 </template>
-
 <script>
 export default {
   name: 'Landing'
 }
+// eslint-disable-next-line no-undef
+var $ = jQuery
+$(document).ready(function () {
+  $('.dkntt').on('click', function () {
+    $('.formRegister').show()
+  })
+  $('.closeRegister').on('click', function () {
+    $('.formRegister').hide()
+  })
+  // eslint-disable-next-line no-unused-vars
+  // var formR
+  // $('.dkntt').on('click', function () {
+  //   $('body').addClass('pr').append(
+  //     $('<div>', { class: 'pf tl0 bgc03 wh1v bfb1 true' }).append(
+  //       $('<div>', { class: 'pr wh1' }).append(
+  //         $('<div>', { class: 'pa tl50 tt bgcf bra5 bóng b1sd oh col-md-4 col-xs-12' }).append(
+  //           $('<div>', { class: 'pa10 bb1 bss bcd cgd', text: 'Nhập thông tin đăng ký' }),
+  //           $('<div>', { class: 'pa10', text: '' }).append(
+  //             formR = $('<form>', { class: '', text: '' }).append(
+  //               $('<label>', { for: 'name', class: 'db mtb5 bấmĐc', text: 'Họ và tên:' }),
+  //               $('<input>', { type: 'text', id: 'name', name: 'name', class: 'mtb5 db bra5 oh pa5 w1 b1sd importValue', placeholder: 'Nhập họ và tên' }),
+  //               $('<label>', { for: 'phoneNumber', class: 'db mtb5 bấmĐc', text: 'Số điện thoại:' }),
+  //               $('<input>', { type: 'tel', id: 'phoneNumber', name: 'phoneNumber', class: 'mtb5 db bra5 oh pa5 w1 b1sd importValue', placeholder: 'Nhập số điện thoại', pattern: '/^\\(?([0-9]{3})\\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/', required: true }),
+  //               $('<label>', { for: 'email', class: 'db mtb5 bấmĐc', text: 'Email:' }),
+  //               $('<input>', { type: 'email', id: 'email', name: 'email', class: 'mtb5 db bra5 oh pa5 w1 b1sd importValue', placeholder: 'Nhập email', required: true }),
+  //               $('<label>', { for: 'companyName', class: 'db mtb5 bấmĐc', text: 'Tên công ty:' }),
+  //               $('<input>', { type: 'text', id: 'companyName', name: 'companyName', class: 'mtb5 db bra5 oh pa5 w1 b1sd importValue', placeholder: 'Nhập Tên công ty', required: true }),
+  //               $('<label>', { for: 'description', class: 'db mtb5 bấmĐc', text: 'Mô tả:' }),
+  //               $('<textarea>', { type: 'text', id: 'description', name: 'description', class: 'mtb5 db bra5 oh pa5 w1 b1sd importValue', placeholder: 'Nhập mô tả' }),
+  //               $('<div>', { class: 'ptb25 tar grid', text: '' }).append(
+  //                 $('<div>', { class: 'plr15 ptb10 btn bn bra5 shineh bgcrd cf mr15', text: 'Đóng' }).click(function () {
+  //                   //
+  //                 }),
+  //                 $('<div>', { class: 'plr15 ptb10 btn bn bra5 shineh bgcgd cf', text: 'Đăng ký' }).click(function () {
+  //                   var data = {}
+  //                   formR.find('.importValue').each(function () {
+  //                     var t = $(this)
+  //                     data[t.attr('name')] = t.val()
+  //                   })
+  //                   $.ajax({
+  //                     method: 'POST',
+  //                     data: data,
+  //                     url: 'api/Contacts',
+  //                     success: function (a) {
+  //                       console.log(data)
+  //                     }
+  //                   })
+  //                 })
+  //               )
+  //             )
+  //           )
+  //         )
+  //       )
+  //     )
+  //   )
+  // })
+})
 </script>
 <style scoped>
 .ptb100{
