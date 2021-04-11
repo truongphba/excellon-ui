@@ -90,6 +90,14 @@ const routes = [
         component: () => import('pages/Payment.vue')
       },
       {
+        path: 'contacts',
+        meta: {
+          title: 'Contacts'
+        },
+        name: 'contacts',
+        component: () => import('pages/Contact.vue')
+      },
+      {
         path: 'orders',
         meta: {
           title: 'Orders'

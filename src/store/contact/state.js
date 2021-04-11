@@ -3,6 +3,11 @@ export default {
   total: 0,
   currentPage: {},
   filter: {},
+  contact: {},
   error: null,
-  isLoading: false
+  isSaved: false,
+  isDeleted: false,
+  isLoading: false,
+  isSaving: false,
+  isDeleting: false
 }

@@ -23,6 +23,7 @@ export async function loadContacts ({
       ...currentPage
     }).toString()
     const response = await httpClient.get(`${endPoint}?${queryParams}`)
+    console.log(response.data)
     commit('fetchContactsSuccess', {
       data: response.data,
       total: response.total,
@@ -35,6 +36,18 @@ export async function loadContacts ({
   }
 }
 
+export async function saveContact ({ commit }, object) {
+  commit('saveContactBegin')
+  try {
+    if (object.id) {
+      await httpClient.put(`${endPoint}/${object.id}`, object)
+    }
+    commit('saveContactSuccess')
+  } catch (error) {
+    console.log(error)
+    commit('saveContactError', error.response)
+  }
+}
 export async function clearFilter ({ commit }) {
   commit('clearStateFilter')
 }
