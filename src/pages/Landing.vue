@@ -2,31 +2,37 @@
   <div>
     <div class="container">
       <div class=" df jcsb">
-        <img class="" src="https://www.hortex-vietnam.com/wp-content/uploads/2019/04/LOGO_HORTEX_VN_2020-300-px-200x111.jpg" alt="">
+        <div class="ptb15 grid">
+          <a class="db grid" href="/landing">
+            <div class="bgrn bgpc bgsc wh50" style="background-image: url('https://icons.iconarchive.com/icons/dakirby309/simply-styled/256/Microsoft-Excel-Mac-icon.png')"></div>
+          <div class="fwb fs18 cgd ml15">Excell-On Services</div>
+          </a>
+        </div>
         <div class="df">
           <div class="cgd tduh shineh h1 df aic">
             <a class="bấmĐc" tel = '0989859398'>Hotline: 19001088</a>
           </div>
-          <div class="cgd tduh shineh h1 df aic ml15 bấmĐc">Đăng nhập</div>
+          <a href='/Login' class="cgd tduh shineh h1 df aic ml15 bấmĐc">Đăng nhập nội bộ</a>
         </div>
       </div>
     </div>
-    <div class="bgcgd">
-      <div class="container df jcsb">
-        <div class="pa10 plr15 cf shineh bấmĐc fs12 ">Giới thiệu</div>
-        <div class="pa10 plr15 cf shineh bấmĐc fs12 ">Sản phẩm</div>
-        <div class="pa10 plr15 cf shineh bấmĐc fs12 ">Dịch vụ</div>
-        <div class="pa10 plr15 cf shineh bấmĐc fs12 ">Liên hệ</div>
+    <div class="bgcgd outMenuTab w1 z5">
+      <div class="container df jcsb menuTab">
+        <div tab="gioiThieu" class="pa10 plr15 cf shineh bấmĐc fs12 ">Giới thiệu</div>
+        <div tab="moTa" class="pa10 plr15 cf shineh bấmĐc fs12 ">Mô tả</div>
+        <div tab="dichVu" class="pa10 plr15 cf shineh bấmĐc fs12 ">Dịch vụ</div>
+        <div tab="lienHe" class="pa10 plr15 cf shineh bấmĐc fs12 ">Liên hệ</div>
       </div>
     </div>
     <div class="bgrn bgpc bgsc w1" style="background-image: url('https://cdn.inevn.com/img/thumb/83712.1kx.isij'); height:500px">
     </div>
-    <div class="container">
+    <div id="gioiThieu" class="container">
       <div class="ptb100">
         <div class="cb">
           <div class="col-xs-6 plr15">
-            <div class="fs2">Call Center toàn diện cho mọi doanh nghiệp</div>
-            <div class="c3 fs15 mt15">Với sự linh hoạt và dễ dàng mở rộng, chúng tôi cung cấp giải pháp Call Center chuyên nghiệp và tối ưu chi phí cho mọi doanh nghiệp (SMEs, Startups, Enterprises).</div>
+            <div class="fs2">Excell-On Services toàn diện cho mọi doanh nghiệp</div>
+            <div class="c3 fs15 mt15 els3">Dịch vụ Tư vấn Excell-on (ECS) giúp các tổ chức phát triển các chiến lược và giải pháp kinh doanh và thương mại. Các giải pháp này cho phép khách hàng của họ tận dụng các công nghệ mới để tạo ra các sản phẩm và dịch vụ sáng tạo cho nền kinh tế. Nhóm tư vấn của họ luôn tập trung vào việc xác định, tối ưu hóa và điều chỉnh các chiến lược CNTT và kinh doanh của khách hàng của họ.
+            </div>
             <div class="grid">
               <div class="btn bn bgcgd cf pa10 plr25 bra5 mt25 dkntt">Đăng ký nhận tư vấn >></div>
             </div>
@@ -41,65 +47,71 @@
       Dễ dàng triển khai, quản lý và mở rộng <br>
       hệ thống tổng đài không giới hạn
     </div>
-    <div class="container">
-      <div class="pt100 pb25">
-        <div class="df aic">
-          <div class="col-xs-6">
-            <div class="bgrn bgpc bgsc w1" style="background-image: url('https://cdn.inevn.com/img/thumb/83715.1kx.isij'); height:350px"></div>
+    <div id="moTa">
+      <div class="container">
+        <div class="pt100 pb25">
+          <div class="df aic">
+            <div class="col-xs-6">
+              <div class="bgrn bgpc bgsc w1" style="background-image: url('https://cdn.inevn.com/img/thumb/83715.1kx.isij'); height:350px"></div>
+            </div>
+            <div class="col-xs-6 plr15">
+              <div class="fs2">Triển khai đơn giản trong vài phút</div>
+              <div class="c3 fs15 mt15">Không chi phí phần cứng, không nhân sự IT vận hành, bạn chỉ cần đăng nhập là có thể sử dụng và trải nghiệm ngay giải pháp Call Center chuyên nghiệp.</div>
+              <div class="grid">
+              </div>
+            </div>
           </div>
-          <div class="col-xs-6 plr15">
-            <div class="fs2">Triển khai đơn giản trong vài phút</div>
-            <div class="c3 fs15 mt15">Không chi phí phần cứng, không nhân sự IT vận hành, bạn chỉ cần đăng nhập là có thể sử dụng và trải nghiệm ngay giải pháp Call Center chuyên nghiệp.</div>
-            <div class="grid">
+        </div>
+      </div>
+      <div class="container">
+        <div class="pb100 pt25">
+          <div class="df aic">
+            <div class="col-xs-6 plr15">
+              <div class="fs2">Tích hợp dễ dàng, nhanh chóng</div>
+              <div class="c3 fs15 mt15">Tự động đồng bộ các thông tin từ phần mềm CRM, ERP, Helpdesk của doanh nghiệp với Call Center.
+                <br><br>
+                Bạn có thể nghe lại file ghi âm của tất cả các cuộc gọi, đồng thời kiểm tra lịch sử cuộc gọi, tài khoản, leads ngay trên chính phần mềm CRM của mình.
+              </div>
+            </div>
+            <div class="col-xs-6">
+              <div class="bgrn bgpc bgsc w1" style="background-image: url('https://i1.wp.com/cdn.inevn.com/img/thumb/93496.500x.isij?resize=475,237&w=475&quality=100&strip=all'); height:350px"></div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="container">
-      <div class="pb100 pt25">
-        <div class="df aic">
-          <div class="col-xs-6 plr15">
-            <div class="fs2">Tích hợp dễ dàng, nhanh chóng</div>
-            <div class="c3 fs15 mt15">Tự động đồng bộ các thông tin từ phần mềm CRM, ERP, Helpdesk của doanh nghiệp với Call Center.
-              <br><br>
-              Bạn có thể nghe lại file ghi âm của tất cả các cuộc gọi, đồng thời kiểm tra lịch sử cuộc gọi, tài khoản, leads ngay trên chính phần mềm CRM của mình.
-            </div>
-          </div>
-          <div class="col-xs-6">
-            <div class="bgrn bgpc bgsc w1" style="background-image: url('https://i1.wp.com/cdn.inevn.com/img/thumb/93496.500x.isij?resize=475,237&w=475&quality=100&strip=all'); height:350px"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="ptb100 bg1o1">
+    <div class="ptb100 bg1o1" id="dichVu">
       <div class="container">
         <div class="fs25 fwb tac pb50">Đơn giản cho cả quản trị viên và nhân viên tổng đài</div>
         <div class="df">
           <div class="col-xs-4 pa10">
-            <div class="b1sd bóngh pa10 bra5 bgcf">
+            <div class="b1sd bóngh pa10 bra5 bgcf h1 ta5">
               <div class="pt35 pb15">
                 <div class="wh50 bgrn bgpc bgsc maa" style="background-image: url('https://v2.stringee.com/stringeex-landingpage-wp/wp-content/uploads/2020/07/1-click-e1594020570638.png');"></div>
-                <div class="fs14 fwb tac ptb25">1 click</div>
-                <div class="tac plr50 c3 fs14 pb50">Tích hợp nhanh chóng với tất cả các phần mềm CRM, Helpdesk của doanh nghiệp. Nhân viên chỉ cần một click ngay trên CRM là có thể gọi ngay tới khách hàng.</div>
+                <div class="fs14 fwb tac ptb25">In-bound Services</div>
+                <div class="tac mlr50 c3 fs14 mb50 els5 service bấmĐc ta5">(Dịch vụ liên kết là dịch vụ hỗ trợ khách hàng, nhận cuộc gọi từ khách hàng. Các trung tâm hỗ trợ này cung cấp dịch vụ 24 giờ cho tất cả khách hàng. Mục tiêu chính của các trung tâm này là nhận đơn đặt hàng sản phẩm, trợ giúp khách hàng cả về kỹ thuật và phi kỹ thuật, để tìm vị trí đại lý.)
+                  <br> Hỗ trợ kỹ thuật
+                  <br> Dịch vụ khách hàng
+                </div>
               </div>
             </div>
           </div>
           <div class="col-xs-4 pa10">
-            <div class="b1sd bóngh pa10 bra5 bgcf">
+            <div class="b1sd bóngh pa10 bra5 bgcf h1 ta5">
               <div class="pt35 pb15">
                 <div class="wh50 bgrn bgpc bgsc maa" style="background-image: url('https://v2.stringee.com/stringeex-landingpage-wp/wp-content/uploads/2020/07/Call-center-1.png');"></div>
-                <div class="fs14 fwb tac ptb25">Điều khiển trực quan</div>
-                <div class="tac plr50 c3 fs14 pb50">Rút ngắn thời gian đào tạo từ vài tháng xuống còn vài phút. Nhân viên của bạn có thể dễ dàng sử dụng tổng đài với các thao tác đơn giản nhất.</div>
+                <div class="fs14 fwb tac ptb25">Out-bound Service</div>
+                <div class="tac mlr50 c3 fs14 mb50 els5 service bấmĐc ta5">(Dịch vụ bên ngoài là dịch vụ trong đó nhân viên của Excell-on gọi điện cho khách hàng để khuyến mãi sản phẩm, để kiểm tra mức độ hài lòng của khách hàng đối với dịch vụ họ cung cấp và tiếp thị qua điện thoại. Trung tâm cuộc gọi bên ngoài phụ thuộc vào các giải pháp công nghệ, kinh nghiệm dày dặn, các chương trình đảm bảo chất lượng và cam kết về dịch vụ khách hàng xuất sắc nhằm đảm bảo kết quả tối đa)
+                </div>
               </div>
             </div>
           </div>
           <div class="col-xs-4 pa10">
-            <div class="b1sd bóngh pa10 bra5 bgcf">
+            <div class="b1sd bóngh pa10 bra5 bgcf h1 ta5">
               <div class="pt35 pb15">
                 <div class="wh50 bgrn bgpc bgsc maa" style="background-image: url('https://v2.stringee.com/stringeex-landingpage-wp/wp-content/uploads/2020/07/Call-center-3.png');"></div>
-                <div class="fs14 fwb tac ptb25">Quản lý dễ dàng</div>
-                <div class="tac plr50 c3 fs14 pb50">Không cần biết kỹ thuật, nhà quản lý có thể thêm số mới, phân chia công việc và giám sát nhân viên mọi lúc, mọi nơi (trên desktop và smartphone).</div>
+                <div class="fs14 fwb tac ptb25">Tele Marketing Services</div>
+                <div class="tac mlr50 c3 fs14 mb50 els5 service bấmĐc ta5"> (Dịch vụ Tiếp thị qua Điện thoại là một dịch vụ hoàn toàn dành cho việc quảng bá tiếp thị hoặc bán các sản phẩm và dịch vụ.)</div>
               </div>
             </div>
           </div>
@@ -120,15 +132,15 @@
         <!-- </div> -->
       </div>
     </div>
-    <div class="bgcgd">
+    <div class="bgcgd" id="lienHe">
       <div class="container">
         <div class="df">
           <div class="col-xs-4 pa25 cf lh2">
             <div class="fwb fs12">Liên hệ</div>
-            <div>CÔNG TY CỔ PHẦN STRINGEE</div>
-            <div>Trụ sở: Tầng 16, VP-2, toà Sun Square, 21 Lê Đức Thọ, Nam Từ Liêm, Hà Nội</div>
+            <div>CÔNG TY CỔ PHẦN Excell-On Services</div>
+            <div>Trụ sở: Ocean park, Gia Lâm, Hà Nội</div>
             <div>Tổng đài hỗ trợ: <b>19001088</b></div>
-            <div>Email: <b>info@stringee.com</b></div>
+            <div>Email: <b>ExcellOn@gmail.com</b></div>
           </div>
           <div class="col-xs-4 pa25 cf lh2">
             <div class="fwb fs12">Dịch vụ</div>
@@ -182,7 +194,10 @@ $(document).ready(function () {
   //   $('.formRegister').hide()
   // })
   // eslint-disable-next-line no-unused-vars
-  var k, formR
+  var k, formR, topMenu = $('.outMenuTab').offset().top
+  $('.service').click(function () {
+    $(this).toggleClass('els5')
+  })
   $('.dkntt').on('click', function () {
     $('body').addClass('pr').append(
       k = $('<div>', { class: 'pf tl0 bgc03 wh1v bfb1 true' }).append(
@@ -235,6 +250,24 @@ $(document).ready(function () {
       )
     )
   })
+  $('.menuTab').on('click', '.shineh ', function () {
+    // eslint-disable-next-line no-unused-vars
+    var t = $(this),
+      tab = t.attr('tab')
+    $('html,body').animate({
+      scrollTop: $('#' + tab).offset().top
+    }, 'slow', function () {
+      $('#' + tab).addClass('ta5  động flipInX')
+    })
+  })
+  $(window).scroll(function () {
+    if (window.scrollY >= topMenu) {
+      $('.outMenuTab').addClass('pf').addClass('tl0')
+    } else {
+      $('.outMenuTab').removeClass('pf').removeClass('tl0')
+    }
+    // console.log(window.scrollY, topMenu)
+  })
 })
 </script>
 <style scoped>
@@ -250,5 +283,19 @@ $(document).ready(function () {
 }
 .bg1o1{
   background: #acc2a726;
+}
+.els3{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 3;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
+.els5{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 5;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
 }
 </style>
