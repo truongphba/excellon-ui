@@ -12,8 +12,32 @@
       <template v-slot:filter-top>
         <FilterTable :filtersAttribute="filtersAttribute"
                      @doFilter="handleFilter"
+                     @show="showData"
+                     :filter-statuses="filterStatuses"
                      :has-add-new="hasAddNew"
         />
+      </template>
+      <template v-slot:action="props">
+        <div class="q-gutter-sm">
+          <q-btn dense
+                 color="primary"
+                 icon="done"
+                 v-if="props.row.status === 2"
+                 @click="confirm({id: props.row.id, status: 1})">
+            <q-tooltip>
+              Confirm
+            </q-tooltip>
+          </q-btn>
+          <q-btn dense
+                 color="red"
+                 icon="clear"
+                 v-if="props.row.status === 2"
+                 @click="confirm({id: props.row.id, status: 0})">
+            <q-tooltip>
+              Cancel
+            </q-tooltip>
+          </q-btn>
+        </div>
       </template>
     </Table>
   </q-page>
@@ -23,6 +47,7 @@
 import { mapState, mapActions } from 'vuex'
 import Table from 'src/components/common/Table'
 import FilterTable from 'src/components/common/FilterTable'
+import { Constants } from 'src/utils/const'
 
 export default {
   name: 'Contact',
@@ -33,47 +58,67 @@ export default {
   data () {
     return {
       hasAddNew: false,
+      isShow: false,
       filter: {},
       columns: [
         {
           name: 'name',
-          label: 'Tên khách hàng',
+          label: 'Client Name',
           align: 'left',
           field: 'name'
         },
         {
-          name: 'phone',
+          name: 'phoneNumber',
           align: 'left',
-          label: 'SĐT/Email khách hàng',
-          field: 'phone'
+          label: 'Phone Number',
+          field: 'phoneNumber'
         },
         {
-          name: 'content',
+          name: 'email',
           align: 'left',
-          label: 'Nội dung',
-          field: 'content'
+          label: 'Email',
+          field: 'email'
         },
         {
-          name: 'just_created_at',
+          name: 'companyName',
           align: 'center',
-          label: 'Tạo'
+          label: 'Company Name',
+          field: 'companyName'
+        },
+        {
+          name: 'description',
+          align: 'center',
+          label: 'Description',
+          field: 'description'
+        },
+        {
+          name: 'status',
+          align: 'center',
+          label: 'Status',
+          field: 'status'
+        },
+        {
+          name: 'created_at',
+          align: 'center',
+          label: 'Created At',
+          field: 'createdAt'
+        },
+        {
+          name: 'action',
+          align: 'left',
+          label: 'Action'
         }
       ],
       filtersAttribute: [
         {
-          label: 'Tên khách hàng',
-          field: 'name',
+          label: 'Search',
+          field: 'keyword',
           type: 'text'
         },
         {
-          label: 'Email khách hàng',
-          field: 'email',
-          type: 'text'
-        },
-        {
-          label: 'SĐT khách hàng',
-          field: 'phone',
-          type: 'text'
+          label: 'Status',
+          field: 'status',
+          type: 'select'
         }
       ]
     }
@@ -83,14 +128,21 @@ export default {
       'contacts',
       'total',
       'isLoading',
+      'contact',
       'error',
-      'currentPage'
-    ])
+      'isSaved',
+      'currentPage',
+      'isDeleted'
+    ]),
+    filterStatuses () {
+      return Constants.OrderStatus
+    }
   },
   methods: {
     ...mapActions({
       loadContacts: 'contact/loadContacts',
-      clearError: 'contact/clearError'
+      clearError: 'contact/clearError',
+      saveContact: 'contact/saveContact'
     }),
     async onRequest ({ data, done }) {
       await this.loadContacts({
@@ -104,6 +156,38 @@ export default {
     },
     handleFilter (filter) {
       this.filter = { ...filter }
+    },
+    async confirm (object) {
+      const title = object.status === 1 ? 'Confirm' : 'Cancel'
+      this.$q
+        .dialog({
+          title: 'Confirm',
+          message: `Do you sure ${title} this contract?`,
+          ok: 'Yes',
+          cancel: 'No',
+          persistent: true
+        })
+        .onOk(async () => {
+          await this.saveContact(object)
+          if (this.error) {
+            this.$q.notify({
+              color: 'red',
+              message: 'Save contact fail'
+            })
+          } else {
+            await this.onRequest({
+              data: this.currentPage
+            })
+            this.$q.notify({
+              color: 'green-4',
+              message: 'Save contact success'
+            })
+          }
+        })
+    },
+    async showData () {
+      await this.clearError()
+      this.isShow = true
     }
   }
 }

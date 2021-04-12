@@ -123,6 +123,19 @@
 
               <q-item-section>Payment</q-item-section>
             </q-item>
+            <q-item v-if="user.departmentId === 1 || user.departmentId === 4"
+                    active-class="tab-active"
+                    :to="{name: 'contacts'}"
+                    class="q-ma-sm navigation-item"
+                    clickable
+                    v-ripple
+            >
+              <q-item-section avatar>
+                <q-icon name="fas fa-id-card"/>
+              </q-item-section>
+
+              <q-item-section>Contacts</q-item-section>
+            </q-item>
           </q-list>
         </q-scroll-area>
       </div>
