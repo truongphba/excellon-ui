@@ -64,8 +64,8 @@
     </template>
 
     <template v-slot:body-cell-description="props">
-      <q-td :props="props">
-        {{ props.row.description }}
+      <q-td :props="props" style="white-space:normal">
+       <span> {{ props.row.description }}</span>
       </q-td>
     </template>
 
@@ -126,6 +126,24 @@
       <q-td :props="props">
         <slot name="action" :row="props.row">
           <div class="q-gutter-sm">
+            <q-btn v-if="isClient" dense
+                   color="warning"
+                   icon="far fa-eye"
+                   @click="showDetail(props.row.id)"
+            >
+              <q-tooltip>
+                Detail
+              </q-tooltip>
+            </q-btn>
+            <q-btn v-if="isClient" dense
+                   color="green"
+                   icon="far fa-eye"
+                   @click="showFormProduct(props.row.id)"
+            >
+              <q-tooltip>
+                Add Product
+              </q-tooltip>
+            </q-btn>
             <q-btn dense
                    color="primary"
                    icon="edit"
@@ -182,6 +200,10 @@ export default {
       }
     },
     isDeleted: {
+      type: Boolean,
+      default: false
+    },
+    isClient: {
       type: Boolean,
       default: false
     },
@@ -253,6 +275,12 @@ export default {
     },
     async showData (id = null) {
       this.$emit('show', id)
+    },
+    async showDetail (id) {
+      this.$emit('showDetail', id)
+    },
+    async showFormProduct () {
+      this.$emit('showFormProduct')
     },
     onDelete (id) {
       this.$q
