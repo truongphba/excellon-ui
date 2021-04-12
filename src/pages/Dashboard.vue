@@ -1,33 +1,33 @@
 <template>
   <q-page class="q-py-sm q-pl-sm">
-    <div style="margin-bottom: 15px">
-        <q-card  style="display: inline-block; margin-right: 15px">
-          <q-card-section :class="$q.dark.isActive?'green_dark':'bg-green-8'" class="text-white" style="padding-right: 50px">
-            <div class="row">
-              <div class="col-10">
-                <div class="text-h6">Total Cost</div>
-                <div class="text-h5">$ {{ totalCost }} </div>
-              </div>
-              <div class="col-2">
-                <q-icon size="62px" name="trending_up"/>
-              </div>
-            </div>
-          </q-card-section>
-        </q-card>
-      <q-card  style="display: inline-block; margin-right: 15px">
-        <q-card-section :class="$q.dark.isActive?'green_dark':'bg-green-8'" class="text-white" style="padding-right: 50px">
-          <div class="row">
-            <div class="col-10">
-              <div class="text-h6">Total Revenue</div>
-              <div class="text-h5">$ 123 </div>
-            </div>
-            <div class="col-2">
-              <q-icon size="62px" name="trending_up"/>
-            </div>
-          </div>
-        </q-card-section>
-      </q-card>
-    </div>
+<!--    <div style="margin-bottom: 15px">-->
+<!--        <q-card  style="display: inline-block; margin-right: 15px">-->
+<!--          <q-card-section :class="$q.dark.isActive?'green_dark':'bg-green-8'" class="text-white" style="padding-right: 50px">-->
+<!--            <div class="row">-->
+<!--              <div class="col-10">-->
+<!--                <div class="text-h6">Total Cost</div>-->
+<!--                <div class="text-h5">$ {{ totalCost }} </div>-->
+<!--              </div>-->
+<!--              <div class="col-2">-->
+<!--                <q-icon size="62px" name="trending_up"/>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </q-card-section>-->
+<!--        </q-card>-->
+<!--      <q-card  style="display: inline-block; margin-right: 15px">-->
+<!--        <q-card-section :class="$q.dark.isActive?'green_dark':'bg-green-8'" class="text-white" style="padding-right: 50px">-->
+<!--          <div class="row">-->
+<!--            <div class="col-10">-->
+<!--              <div class="text-h6">Total Revenue</div>-->
+<!--              <div class="text-h5">$ 123 </div>-->
+<!--            </div>-->
+<!--            <div class="col-2">-->
+<!--              <q-icon size="62px" name="trending_up"/>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </q-card-section>-->
+<!--      </q-card>-->
+<!--    </div>-->
     <q-card flat bordered class="q-pa-none q-ma-none" style="display: flex; justify-content: space-between;background: transparent;
     border: none;">
       <q-card-section v-if="totalByMonth.length > 0" class="shadow-1" style="width: 49% ;background:#fff;">
