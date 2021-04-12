@@ -154,7 +154,6 @@
         </div>
       </div>
     </div>
-    //form ddawng kys thono tin
 <!--    <div class="pf tl0 bgc03 wh1v bfb1 true dn formRegister">-->
 <!--      <div class="pr wh1"><div class="pa tl50 tt bgcf bra5 bóng b1sd oh col-md-4 col-xs-12">-->
 <!--        <div class="pa10 bb1 bss bcd cgd">Nhập thông tin đăng ký</div>-->

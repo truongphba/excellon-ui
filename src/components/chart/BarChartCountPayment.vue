@@ -22,6 +22,13 @@ export default {
     const months = this.chartData.map(d => d.date)
     const count = this.chartData.map(d => d.count)
     const { borderColor, pointColor, pointBackgroundColor, backgroundColor } = this.chartColors
+    this.options.tooltips = {
+      callbacks: {
+        label: function (tooltipItem, data) {
+          return tooltipItem.yLabel.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')
+        }
+      }
+    }
     this.renderChart({
       labels: months,
       datasets: [

@@ -1,51 +1,23 @@
 <template>
   <q-page class="q-py-sm q-pl-sm">
-<!--    <div style="margin-bottom: 15px">-->
-<!--        <q-card  style="display: inline-block; margin-right: 15px">-->
-<!--          <q-card-section :class="$q.dark.isActive?'green_dark':'bg-green-8'" class="text-white" style="padding-right: 50px">-->
-<!--            <div class="row">-->
-<!--              <div class="col-10">-->
-<!--                <div class="text-h6">Total Cost</div>-->
-<!--                <div class="text-h5">$ {{ totalCost }} </div>-->
-<!--              </div>-->
-<!--              <div class="col-2">-->
-<!--                <q-icon size="62px" name="trending_up"/>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--          </q-card-section>-->
-<!--        </q-card>-->
-<!--      <q-card  style="display: inline-block; margin-right: 15px">-->
-<!--        <q-card-section :class="$q.dark.isActive?'green_dark':'bg-green-8'" class="text-white" style="padding-right: 50px">-->
-<!--          <div class="row">-->
-<!--            <div class="col-10">-->
-<!--              <div class="text-h6">Total Revenue</div>-->
-<!--              <div class="text-h5">$ 123 </div>-->
-<!--            </div>-->
-<!--            <div class="col-2">-->
-<!--              <q-icon size="62px" name="trending_up"/>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </q-card-section>-->
-<!--      </q-card>-->
-<!--    </div>-->
     <q-card flat bordered class="q-pa-none q-ma-none" style="display: flex; justify-content: space-between;background: transparent;
     border: none;">
-      <q-card-section v-if="totalByMonth.length > 0" class="shadow-1" style="width: 49% ;background:#fff;">
+      <q-card-section v-if="totalByMonth.length > 0" class="shadow-1" style="width: 49% ;background:white;">
         <bar-chart-month :chart-data="totalByMonth" :options="chartOptions" :chart-colors="revenueChartColor"
                    label="Total Cost By Month"></bar-chart-month>
       </q-card-section>
-      <q-card-section v-if="countPaymentInMonth.length > 0" class="shadow-1" style="width: 49% ;background:#fff;">
+      <q-card-section v-if="countPaymentInMonth.length > 0" class="shadow-1" style="width: 49% ;background:white;">
         <bar-chart-count-payment :chart-data="countPaymentInMonth" :options="chartOptions" :chart-colors="revenueChartColor"
                          label="Total Cost By Month"></bar-chart-count-payment>
       </q-card-section>
     </q-card>
     <q-card flat bordered class="q-pa-none q-ma-none" style="display: flex; justify-content: space-between;background: transparent;
-    border: none;">
-      <q-card-section v-if="chartDataServiceTotal.labels.length > 0" class="shadow-1" style="width: 49% ;background:#fff;">
+    border: none; margin-top: 15px">
+      <q-card-section v-if="chartDataServiceTotal.labels.length > 0" class="shadow-1" style="width: 49% ;background:white;">
         <pie-chart-service-total :data="chartDataServiceTotal" :options="chartOptionsServiceTotal"
                          label="Total Cost By Month"></pie-chart-service-total>
       </q-card-section>
-      <q-card-section v-if="chartDataServiceCount.labels.length > 0" class="shadow-1" style="width: 49% ;background:#fff;">
+      <q-card-section v-if="chartDataServiceCount.labels.length > 0" class="shadow-1" style="width: 49% ;background:white;">
         <pie-chart-service-count :data="chartDataServiceCount" :options="chartOptionsServiceCount"
                                  label="Total Cost By Month"></pie-chart-service-count>
       </q-card-section>
@@ -141,7 +113,7 @@ export default {
     },
     async pieChartServiceTotal () {
       const { data } = await axios.get(process.env.API_URL + '/Chart/serviceTotalCost')
-      Object.keys(data).map(element => this.chartDataServiceTotal.labels.push(element))
+      this.chartDataServiceTotal.labels = ['In-Bound', 'Out-Bound', 'Tele-Marketing']
       this.chartDataServiceTotal.datasets[0].data = Object.values(data)
       this.totalCost = data.totalCost
     },
@@ -150,9 +122,7 @@ export default {
       const InBound = data.inBound / data.totalCount * 100
       const OutBound = data.outBound / data.totalCount * 100
       const Tele = data.tele / data.totalCount * 100
-      const arr = Object.keys(data)
-      arr.shift()
-      this.chartDataServiceCount.labels = arr
+      this.chartDataServiceCount.labels = ['In-Bound', 'Out-Bound', 'Tele-Marketing']
       this.chartDataServiceCount.datasets[0].data.push(InBound, OutBound, Tele)
     }
   }
