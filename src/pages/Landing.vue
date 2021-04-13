@@ -17,10 +17,10 @@
     </div>
     <div class="bgcgd outMenuTab w1 z5">
       <div class="container df jcsb menuTab">
-        <div tab="gioiThieu" class="pa10 plr15 cf shineh bấmĐc fs12 ">Giới thiệu</div>
-        <div tab="moTa" class="pa10 plr15 cf shineh bấmĐc fs12 ">Mô tả</div>
-        <div tab="dichVu" class="pa10 plr15 cf shineh bấmĐc fs12 ">Dịch vụ</div>
-        <div tab="lienHe" class="pa10 plr15 cf shineh bấmĐc fs12 ">Liên hệ</div>
+        <div tab="gioiThieu" class="pa10 plr15 cf shineh bấmĐc fs12 ">Introduce</div>
+        <div tab="moTa" class="pa10 plr15 cf shineh bấmĐc fs12 ">Description</div>
+        <div tab="dichVu" class="pa10 plr15 cf shineh bấmĐc fs12 ">Service</div>
+        <div tab="lienHe" class="pa10 plr15 cf shineh bấmĐc fs12 ">Contact</div>
       </div>
     </div>
     <div class="bgrn bgpc bgsc w1" style="background-image: url('https://cdn.inevn.com/img/thumb/83712.1kx.isij'); height:500px">
@@ -29,11 +29,12 @@
       <div class="ptb100">
         <div class="cb">
           <div class="col-xs-6 plr15">
-            <div class="fs2">Excell-On Services toàn diện cho mọi doanh nghiệp</div>
-            <div class="c3 fs15 mt15 els3">Dịch vụ Tư vấn Excell-on (ECS) giúp các tổ chức phát triển các chiến lược và giải pháp kinh doanh và thương mại. Các giải pháp này cho phép khách hàng của họ tận dụng các công nghệ mới để tạo ra các sản phẩm và dịch vụ sáng tạo cho nền kinh tế. Nhóm tư vấn của họ luôn tập trung vào việc xác định, tối ưu hóa và điều chỉnh các chiến lược CNTT và kinh doanh của khách hàng của họ.
+            <div class="fs2">Excell-On Services comprehensive for all businesses</div>
+            <div class="c3 fs15 mt15 els3">Excell-on Consulting Services (ECS) helps organizations develop business and commercial strategies and solutions. These solutions enable their customers to leverage new technologies to create innovative products and services for the economy. Their consulting team is always focused on defining, optimizing, and tailoring the IT and business strategies of their clients.
+              .
             </div>
             <div class="grid">
-              <div class="btn bn bgcgd cf pa10 plr25 bra5 mt25 dkntt">Đăng ký nhận tư vấn >></div>
+              <div class="btn bn bgcgd cf pa10 plr25 bra5 mt25 dkntt">Sign up for a consultation</div>
             </div>
           </div>
           <div class="col-xs-6">
@@ -43,8 +44,8 @@
       </div>
     </div>
     <div class="ptb100 fs25 tac bg1o1">
-      Dễ dàng triển khai, quản lý và mở rộng <br>
-      hệ thống tổng đài không giới hạn
+      Easy to deploy, manage, and expand <br>
+      Unlimited PBX system
     </div>
     <div id="moTa">
       <div class="container">
@@ -54,8 +55,8 @@
               <div class="bgrn bgpc bgsc w1" style="background-image: url('https://cdn.inevn.com/img/thumb/83715.1kx.isij'); height:350px"></div>
             </div>
             <div class="col-xs-6 plr15">
-              <div class="fs2">Triển khai đơn giản trong vài phút</div>
-              <div class="c3 fs15 mt15">Không chi phí phần cứng, không nhân sự IT vận hành, bạn chỉ cần đăng nhập là có thể sử dụng và trải nghiệm ngay giải pháp Call Center chuyên nghiệp.</div>
+              <div class="fs2">Simple deployment in minutes</div>
+              <div class="c3 fs15 mt15">No hardware costs, no IT personnel, you just need to log in to use and immediately experience a professional Call Center solution. .</div>
               <div class="grid">
               </div>
             </div>
@@ -66,10 +67,10 @@
         <div class="pb100 pt25">
           <div class="df aic">
             <div class="col-xs-6 plr15">
-              <div class="fs2">Tích hợp dễ dàng, nhanh chóng</div>
-              <div class="c3 fs15 mt15">Tự động đồng bộ các thông tin từ phần mềm CRM, ERP, Helpdesk của doanh nghiệp với Call Center.
+              <div class="fs2">Easy and fast integration</div>
+              <div class="c3 fs15 mt15">Automatically synchronize information from CRM, ERP, Helpdesk software of the business with Call Center .
                 <br><br>
-                Bạn có thể nghe lại file ghi âm của tất cả các cuộc gọi, đồng thời kiểm tra lịch sử cuộc gọi, tài khoản, leads ngay trên chính phần mềm CRM của mình.
+                You can listen to the recording file of all calls, and check call history, accounts, leads right on your own CRM software. .
               </div>
             </div>
             <div class="col-xs-6">
@@ -81,16 +82,16 @@
     </div>
     <div class="ptb100 bg1o1" id="dichVu">
       <div class="container">
-        <div class="fs25 fwb tac pb50">Đơn giản cho cả quản trị viên và nhân viên tổng đài</div>
+        <div class="fs25 fwb tac pb50">Simple for both administrators and switchboard staff</div>
         <div class="df">
           <div class="col-xs-4 pa10">
             <div class="b1sd bóngh pa10 bra5 bgcf h1 ta5">
               <div class="pt35 pb15">
                 <div class="wh50 bgrn bgpc bgsc maa" style="background-image: url('https://v2.stringee.com/stringeex-landingpage-wp/wp-content/uploads/2020/07/1-click-e1594020570638.png');"></div>
                 <div class="fs14 fwb tac ptb25">In-bound Services</div>
-                <div class="tac mlr50 c3 fs14 mb50 els5 service bấmĐc ta5">(Dịch vụ liên kết là dịch vụ hỗ trợ khách hàng, nhận cuộc gọi từ khách hàng. Các trung tâm hỗ trợ này cung cấp dịch vụ 24 giờ cho tất cả khách hàng. Mục tiêu chính của các trung tâm này là nhận đơn đặt hàng sản phẩm, trợ giúp khách hàng cả về kỹ thuật và phi kỹ thuật, để tìm vị trí đại lý.)
-                  <br> Hỗ trợ kỹ thuật
-                  <br> Dịch vụ khách hàng
+                <div class="tac mlr50 c3 fs14 mb50 els5 service bấmĐc ta5">(Affiliate service is customer support service, take calls from customers. These support centers provide 24-hour service to all customers. The main goal of these centers is to take orders. customer service, both technical and non-technical customer assistance, to find agent locations.)
+                  <br> Technical assistance
+                  <br> Customer service
                 </div>
               </div>
             </div>
@@ -100,7 +101,7 @@
               <div class="pt35 pb15">
                 <div class="wh50 bgrn bgpc bgsc maa" style="background-image: url('https://v2.stringee.com/stringeex-landingpage-wp/wp-content/uploads/2020/07/Call-center-1.png');"></div>
                 <div class="fs14 fwb tac ptb25">Out-bound Service</div>
-                <div class="tac mlr50 c3 fs14 mb50 els5 service bấmĐc ta5">(Dịch vụ bên ngoài là dịch vụ trong đó nhân viên của Excell-on gọi điện cho khách hàng để khuyến mãi sản phẩm, để kiểm tra mức độ hài lòng của khách hàng đối với dịch vụ họ cung cấp và tiếp thị qua điện thoại. Trung tâm cuộc gọi bên ngoài phụ thuộc vào các giải pháp công nghệ, kinh nghiệm dày dặn, các chương trình đảm bảo chất lượng và cam kết về dịch vụ khách hàng xuất sắc nhằm đảm bảo kết quả tối đa)
+                <div class="tac mlr50 c3 fs14 mb50 els5 service bấmĐc ta5">(External service is one in which Excell-on employees call customers to promote products, to check customer satisfaction with services they provide, and to market by phone The outside call center relies on technology solutions, extensive experience, quality assurance programs and a commitment to outstanding customer service to ensure maximum results)
                 </div>
               </div>
             </div>
@@ -110,7 +111,8 @@
               <div class="pt35 pb15">
                 <div class="wh50 bgrn bgpc bgsc maa" style="background-image: url('https://v2.stringee.com/stringeex-landingpage-wp/wp-content/uploads/2020/07/Call-center-3.png');"></div>
                 <div class="fs14 fwb tac ptb25">Tele Marketing Services</div>
-                <div class="tac mlr50 c3 fs14 mb50 els5 service bấmĐc ta5"> (Dịch vụ Tiếp thị qua Điện thoại là một dịch vụ hoàn toàn dành cho việc quảng bá tiếp thị hoặc bán các sản phẩm và dịch vụ.)</div>
+                <div class="tac mlr50 c3 fs14 mb50 els5 service bấmĐc ta5"> (The Telemarketing Service is a service purely for the marketing promotion or sale of products and services.)
+                </div>
               </div>
             </div>
           </div>
@@ -135,14 +137,14 @@
       <div class="container">
         <div class="df">
           <div class="col-xs-4 pa25 cf lh2">
-            <div class="fwb fs12">Liên hệ</div>
-            <div>CÔNG TY CỔ PHẦN Excell-On Services</div>
-            <div>Trụ sở: Ocean park, Gia Lâm, Hà Nội</div>
-            <div>Tổng đài hỗ trợ: <b>19001088</b></div>
+            <div class="fwb fs12">Contact</div>
+            <div>JOINT STOCK COMPANY Excell-On Services</div>
+            <div>Headquarters: Ocean park, Gia Lâm, Hà Nội</div>
+            <div>Support switchboard : <b>19001088</b></div>
             <div>Email: <b>ExcellOn@gmail.com</b></div>
           </div>
           <div class="col-xs-4 pa25 cf lh2">
-            <div class="fwb fs12">Dịch vụ</div>
+            <div class="fwb fs12">Service</div>
             <div class="tduh bấmĐc">In bound</div>
             <div class="tduh bấmĐc">Out bound</div>
             <div class="tduh bấmĐc">Service</div>
@@ -204,24 +206,24 @@ $(document).ready(function () {
       k = $('<div>', { class: 'pf tl0 bgc03 wh1v bfb1 true' }).append(
         $('<div>', { class: 'pr wh1' }).append(
           $('<div>', { class: 'pa tl50 tt bgcf bra5 bóng b1sd oh col-md-4 col-xs-12' }).append(
-            $('<div>', { class: 'pa10 bb1 bss bcd cgd', text: 'Nhập thông tin đăng ký' }),
+            $('<div>', { class: 'pa10 bb1 bss bcd cgd', text: 'Enter contact information' }),
             $('<div>', { class: 'pa10', text: '' }).append(
               formR = $('<form>', { class: '', text: '' }).append(
-                $('<label>', { for: 'name', class: 'db mtb5 bấmĐc', text: 'Họ và tên:' }),
-                $('<input>', { type: 'text', id: 'name', name: 'name', class: 'mtb5 db bra5 oh pa5 w1 b1sd importValue', placeholder: 'Nhập họ và tên' }),
-                $('<label>', { for: 'phoneNumber', class: 'db mtb5 bấmĐc', text: 'Số điện thoại:' }),
-                $('<input>', { type: 'tel', id: 'phoneNumber', name: 'phoneNumber', class: 'mtb5 db bra5 oh pa5 w1 b1sd importValue', placeholder: 'Nhập số điện thoại', pattern: '/^\\(?([0-9]{3})\\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/', required: true }),
+                $('<label>', { for: 'name', class: 'db mtb5 bấmĐc', text: 'Full Name:' }),
+                $('<input>', { type: 'text', id: 'name', name: 'name', class: 'mtb5 db bra5 oh pa5 w1 b1sd importValue', placeholder: '' }),
+                $('<label>', { for: 'phoneNumber', class: 'db mtb5 bấmĐc', text: 'Phone Number:' }),
+                $('<input>', { type: 'tel', id: 'phoneNumber', name: 'phoneNumber', class: 'mtb5 db bra5 oh pa5 w1 b1sd importValue', placeholder: '', pattern: '/^\\(?([0-9]{3})\\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/', required: true }),
                 $('<label>', { for: 'email', class: 'db mtb5 bấmĐc', text: 'Email:' }),
-                $('<input>', { type: 'email', id: 'email', name: 'email', class: 'mtb5 db bra5 oh pa5 w1 b1sd importValue', placeholder: 'Nhập email', required: true }),
-                $('<label>', { for: 'companyName', class: 'db mtb5 bấmĐc', text: 'Tên công ty:' }),
-                $('<input>', { type: 'text', id: 'companyName', name: 'companyName', class: 'mtb5 db bra5 oh pa5 w1 b1sd importValue', placeholder: 'Nhập Tên công ty', required: true }),
-                $('<label>', { for: 'description', class: 'db mtb5 bấmĐc', text: 'Mô tả:' }),
-                $('<textarea>', { type: 'text', id: 'description', name: 'description', class: 'mtb5 db bra5 oh pa5 w1 b1sd importValue', placeholder: 'Nhập mô tả' }),
+                $('<input>', { type: 'email', id: 'email', name: 'email', class: 'mtb5 db bra5 oh pa5 w1 b1sd importValue', placeholder: '', required: true }),
+                $('<label>', { for: 'companyName', class: 'db mtb5 bấmĐc', text: 'Company:' }),
+                $('<input>', { type: 'text', id: 'companyName', name: 'companyName', class: 'mtb5 db bra5 oh pa5 w1 b1sd importValue', placeholder: '', required: true }),
+                $('<label>', { for: 'description', class: 'db mtb5 bấmĐc', text: 'Content:' }),
+                $('<textarea>', { type: 'text', id: 'description', name: 'description', class: 'mtb5 db bra5 oh pa5 w1 b1sd importValue', placeholder: '' }),
                 $('<div>', { class: 'ptb25 tar grid', text: '' }).append(
-                  $('<div>', { class: 'plr15 ptb10 btn bn bra5 shineh bgcrd cf mr15', text: 'Đóng' }).click(function () {
+                  $('<div>', { class: 'plr15 ptb10 btn bn bra5 shineh bgcrd cf mr15', text: 'Close' }).click(function () {
                     k.remove()
                   }),
-                  $('<div>', { class: 'plr15 ptb10 btn bn bra5 shineh bgcgd cf', text: 'Đăng ký' }).click(function () {
+                  $('<div>', { class: 'plr15 ptb10 btn bn bra5 shineh bgcgd cf', text: 'Submit' }).click(function () {
                     var data = {}
                     formR.find('.importValue').each(function () {
                       var t = $(this)
@@ -234,11 +236,11 @@ $(document).ready(function () {
                       success: function (a) {
                         if (a) {
                           formR.empty().append(
-                            $('<div>', { class: 'fwb fs2 cgd pa35 tac', text: 'Đăng ký thành công' })
+                            $('<div>', { class: 'fwb fs2 cgd pa35 tac', text: 'Send contact success.Processing the request can take time, our staff will contact to you soon' })
                           )
                           setTimeout(function () {
                             k.remove()
-                          }, 1000)
+                          }, 5000)
                         }
                       }
                     })
