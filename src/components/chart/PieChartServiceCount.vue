@@ -5,12 +5,26 @@ export default {
   name: 'PieChartServiceCount',
   extends: Pie,
   props: ['data', 'options'],
-  mounted () {
-    this.renderChart(this.data, {
+  async mounted () {
+    this.options.tooltips = {
       borderWidth: '10px',
       hoverBackgroundColor: 'red',
       hoverBorderWidth: '10px'
-    })
+      // callbacks: {
+      //   label: function (tooltipItem, data) {
+      //     console.log(tooltipItem.datasetIndex, data.datasets[0].data[tooltipItem.datasetIndex])
+      //     // // return tooltipItem.yLabel
+      //     // return true
+      //   }
+      // }
+    }
+    this.renderChart(this.data,
+    //   {
+    //   borderWidth: '10px',
+    //   hoverBackgroundColor: 'red',
+    //   hoverBorderWidth: '10px'
+    // },
+      this.options)
   }
 }
 </script>
