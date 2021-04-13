@@ -38,7 +38,17 @@
         <q-card-section>
          <div class="row">
            <div class="col-md-4 q-pa-md">
-             <div class="text-h6" >Client Detail</div>
+             <div class="row">
+               <div class="col-md-6">
+                 <div class="text-h6" >Client Detail</div>
+               </div>
+               <div class="col-md-6">
+                 <q-btn @click="showFormProduct(client.id)"
+                        color="green"
+                        label="Add new product"
+                 />
+               </div>
+             </div>
              <div class="row">
                <div class="col-md-6">
                  <p><strong>Id: </strong>{{ client.id }}</p>
@@ -50,13 +60,10 @@
                  <p><strong>Phone Number: </strong>{{ client.phoneNumber }}</p>
                </div>
                <div class="col-md-6">
-                 <p><strong>Address: </strong>{{ client.address }}</p>
-               </div>
-               <div class="col-md-6">
                  <p><strong>Tax Code: </strong>{{ client.taxCode }}</p>
                </div>
                <div class="col-md-6">
-                 <p><strong>Career: </strong>{{ client.career }}</p>
+                 <p><strong>Client Code: </strong>{{ client.clientCode }}</p>
                </div>
                <div class="col-md-6">
                  <p><strong>Email: </strong>{{ client.email }}</p>
@@ -64,11 +71,8 @@
                <div class="col-md-6">
                  <p><strong>Client Source: </strong>{{ client.clientSource }}</p>
                </div>
-               <div class="col-md-6">
-                 <p><strong>Point Of Contact: </strong>{{ client.pointOfContact }}</p>
-               </div>
-               <div class="col-md-6">
-                 <p><strong>Position: </strong>{{ client.position }}</p>
+               <div class="col-md-12">
+                 <p><strong>Address: </strong>{{ client.address }}</p>
                </div>
                <div class="col-md-12">
                  <p><strong>Description: </strong>{{ client.description }}</p>
@@ -183,7 +187,7 @@
       </q-card>
     </q-dialog>
     <q-dialog v-model="isShowFormProduct">
-      <q-card class="detail" style=" width: 50%;max-width: 50%;">
+      <q-card class="detail" style=" width: 80%;max-width: 80%;">
         <q-card-section>
           <div class="text-h6 q-mb-lg" >Add Product</div>
           <q-form ref="productForm"
@@ -207,6 +211,56 @@
                   </div>
                 </template>
               </q-input>
+            </div>
+            <div class="col-12 q-mb-lg">
+              <label>Description</label>
+              <q-editor
+                v-model="initialProduct.description"
+                :dense="$q.screen.lt.md"
+                :toolbar="[
+            [
+              {
+                label: $q.lang.editor.align,
+                icon: $q.iconSet.editor.align,
+                fixedLabel: true,
+                list: 'only-icons',
+                options: ['left', 'center', 'right', 'justify']
+              }
+            ],
+            ['bold', 'italic', 'strike', 'underline', 'subscript', 'superscript'],
+            ['token', 'hr', 'link', 'custom_btn'],
+            [
+              {
+                label: $q.lang.editor.formatting,
+                icon: $q.iconSet.editor.formatting,
+                list: 'no-icons',
+                options: ['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'code']
+              },
+              {
+                label: $q.lang.editor.fontSize,
+                icon: $q.iconSet.editor.fontSize,
+                fixedLabel: true,
+                fixedIcon: true,
+                list: 'no-icons',
+                options: ['size-1','size-2','size-3','size-4','size-5','size-6','size-7']
+              },
+              'removeFormat'
+            ],
+            ['quote', 'unordered', 'ordered', 'outdent', 'indent'],
+            ['undo', 'redo'],
+            ['fullscreen']
+          ]"
+                :fonts="{
+            arial: 'Arial',
+            arial_black: 'Arial Black',
+            comic_sans: 'Comic Sans MS',
+            courier_new: 'Courier New',
+            impact: 'Impact',
+            lucida_grande: 'Lucida Grande',
+            times_new_roman: 'Times New Roman',
+            verdana: 'Verdana'
+          }"
+              />
             </div>
           </q-form>
         </q-card-section>
@@ -266,12 +320,6 @@ export default {
           field: 'phoneNumber'
         },
         {
-          name: 'address',
-          label: 'Address',
-          align: 'left',
-          field: 'address'
-        },
-        {
           name: 'created_at',
           align: 'left',
           label: 'Created At',
@@ -315,15 +363,14 @@ export default {
         }
       ],
       initialPayment: {},
-      initialProduct: {},
+      initialProduct: {
+        description: ''
+      },
       initialPaymentDetails: [],
       infoFormInputs: {
         name: {
           label: 'Name',
           rules: [val => !!val || 'Please enter Product name']
-        },
-        description: {
-          label: 'Description'
         }
       }
     }
@@ -396,8 +443,13 @@ export default {
       this.initialPaymentDetails = []
       this.isShowDetail = true
     },
-    async showFormProduct () {
-      this.initialProduct = {}
+    async showFormProduct (id) {
+      if (id != null) {
+        await this.loadClient(id)
+      }
+      this.initialProduct = {
+        description: ''
+      }
       this.isShowFormProduct = true
     },
     async handleDelete ({ id, done }) {
@@ -457,6 +509,9 @@ export default {
               color: this.error ? 'red' : 'green-4',
               message: this.initialPayment.id ? `Update ${title}` : `Add new ${title}`
             })
+            await this.loadClient(this.initialProduct.clientId)
+            await this.loadAllProducts(this.initialProduct.clientId)
+            await this.loadAllServices()
             this.isShowFormProduct = false
           }
         }

@@ -12,7 +12,6 @@
           <div class="cgd tduh shineh h1 df aic">
             <a class="bấmĐc" tel = '0989859398'>Hotline: 19001088</a>
           </div>
-          <a href='/Login' class="cgd tduh shineh h1 df aic ml15 bấmĐc">Đăng nhập nội bộ</a>
         </div>
       </div>
     </div>
@@ -187,6 +186,9 @@ export default {
 // eslint-disable-next-line no-undef
 var $ = jQuery
 $(document).ready(function () {
+  $('body').append(
+    $('<link>', { rel: 'stylesheet', href: 'https://inesn.me/css/include.main.css' })
+  )
   // $('.dkntt').on('click', function () {
   //   $('.formRegister').show()
   // })
@@ -271,6 +273,9 @@ $(document).ready(function () {
 })
 </script>
 <style scoped>
+.pf{
+  position: fixed;
+}
 .ptb100{
   padding-bottom: 100px;
   padding-top: 100px;

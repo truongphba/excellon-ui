@@ -137,7 +137,7 @@
             </q-btn>
             <q-btn v-if="isClient" dense
                    color="green"
-                   icon="far fa-eye"
+                   icon="fas fa-plus"
                    @click="showFormProduct(props.row.id)"
             >
               <q-tooltip>
@@ -279,8 +279,8 @@ export default {
     async showDetail (id) {
       this.$emit('showDetail', id)
     },
-    async showFormProduct () {
-      this.$emit('showFormProduct')
+    async showFormProduct (id) {
+      this.$emit('showFormProduct', id)
     },
     onDelete (id) {
       this.$q
