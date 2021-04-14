@@ -3,10 +3,12 @@
     <q-card flat bordered class="q-pa-none q-ma-none" style="display: flex; justify-content: space-between;background: transparent;
     border: none;">
       <q-card-section v-if="totalByMonth.length > 0" class="shadow-1" style="width: 49% ;background:white;">
+        <div class="text-h6" style="margin-bottom: 20px">Revenue Statistics</div>
         <bar-chart-month :chart-data="totalByMonth" :options="chartOptions" :chart-colors="revenueChartColor"
                    label="Total Cost By Month"></bar-chart-month>
       </q-card-section>
       <q-card-section v-if="countPaymentInMonth.length > 0" class="shadow-1" style="width: 49% ;background:white;">
+        <div class="text-h6" style="margin-bottom: 20px">Contract statistics</div>
         <bar-chart-count-payment :chart-data="countPaymentInMonth" :options="chartOptions" :chart-colors="revenueChartColor"
                          label="Total Cost By Month"></bar-chart-count-payment>
       </q-card-section>
@@ -14,10 +16,12 @@
     <q-card flat bordered class="q-pa-none q-ma-none" style="display: flex; justify-content: space-between;background: transparent;
     border: none; margin-top: 15px">
       <q-card-section v-if="chartDataServiceTotal.labels.length > 0" class="shadow-1" style="width: 49% ;background:white;">
+        <div class="text-h6" style="margin-bottom: 20px">Percentage of revenue by service</div>
         <pie-chart-service-total :data="chartDataServiceTotal" :options="chartOptionsServiceTotal"
                          label="Total Cost By Month"></pie-chart-service-total>
       </q-card-section>
       <q-card-section v-if="chartDataServiceCount.labels.length > 0" class="shadow-1" style="width: 49% ;background:white;">
+        <div class="text-h6" style="margin-bottom: 20px">Percentage contract by service</div>
         <pie-chart-service-count :data="chartDataServiceCount" :options="chartOptionsServiceCount"
                                  label="Total Cost By Month"></pie-chart-service-count>
       </q-card-section>
